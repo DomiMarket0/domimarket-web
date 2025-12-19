@@ -3,42 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket Hub</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <title>DomiMarket | Tienda Oficial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-    <nav>
-        <div class="logo">
-            <img src="sdhOEZX.png" alt="DomiMarket Logo">
-            <span class="logo-text">DomiMarket</span>
+    <header>
+        <div class="navbar">
+            <img src="logo.png" alt="Logo" class="logo">
+            <nav>
+                <a href="#">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#">Soporte</a>
+            </nav>
+            <button id="login-btn" class="discord-btn">Vincular con Discord</button>
         </div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#contactos">Contactos</a></li>
-        </ul>
-        <button id="discordBtn" class="discord-btn" onclick="loginWithDiscord()">
-            <img id="btnAvatar" src="" style="display:none; width:25px; border-radius:50%">
-            <span id="btnText">Vincular con Discord</span>
-        </button>
-    </nav>
+    </header>
 
-    <section id="inicio" class="hero">
-        <h1>Bienvenido a <span class="brand">DomiMarket</span></h1>
-        <p>Soluciones premium y scripts avanzados.</p>
-        <a href="#productos" class="btn-main">Ver Catálogo</a>
+    <section class="hero">
+        <h1>Bienvenido a <span class="highlight">DomiMarket</span></h1>
+        <p>Soluciones premium y scripts avanzados para tu servidor.</p>
+        <a href="#productos" class="btn-primary">Ver Catálogo</a>
     </section>
 
-    <section id="productos" class="container">
-        <h2 class="title">Nuestros Productos</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Script Pack</h3>
-                <p>Acceso total a DomiMarket</p>
-                <button class="btn-buy">Comprar</button>
+    <section id="productos" class="products">
+        <h2>Nuestros Productos</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="logo.png" alt="Script Pack">
+                </div>
+                <h3>Script Pack Premium</h3>
+                <p>Acceso total a todas las herramientas de DomiMarket.</p>
+                <span class="price">$15.00 USD</span>
+                <button class="buy-btn">Comprar ahora</button>
             </div>
-        </div>
+
+            </div>
     </section>
 
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 </html>

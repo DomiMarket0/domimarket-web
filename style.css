@@ -1,8 +1,6 @@
-/* Reset Total */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { background: #000; color: #fff; overflow-x: hidden; }
 
-/* NAVBAR PROTEGIDA */
 .navbar {
     background: #050505;
     height: 75px;
@@ -30,7 +28,6 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 .brand { font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; }
 .red { color: #ff0000; }
 
-/* BOTON LOGIN */
 .login-button {
     background: #ff0000;
     color: #fff;
@@ -42,7 +39,6 @@ body { background: #000; color: #fff; overflow-x: hidden; }
     transition: 0.3s;
 }
 
-/* PERFIL ROJO */
 .user-active-btn {
     background: #ff0000;
     padding: 7px 15px;
@@ -75,7 +71,6 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 .exit { color: #ff4444 !important; }
 .show { display: block !important; }
 
-/* CUERPO CENTRAL */
 .hero-section {
     padding-top: 180px;
     text-align: center;

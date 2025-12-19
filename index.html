@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Premium MTA Scripts</title>
+    <title>DomiMarket | Premium Store</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -16,12 +16,11 @@
                 <span>DOMI<span class="red-text">MARKET</span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
             </ul>
             <div id="auth-section">
-                <button id="login-btn" class="discord-btn" onclick="loginDiscord()">Iniciar Sesión</button>
+                <a href="login.html" id="login-btn" class="discord-btn">Iniciar Sesión</a>
             </div>
         </nav>
     </header>
@@ -29,7 +28,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Bienvenido a <span class="highlight">DomiMarket</span></h1>
-            <p>Tu fuente de Models y Scripts premium para MTA. Lleva tu servidor al siguiente nivel.</p>
+            <p>Tu fuente de Models y Scripts premium para MTA.</p>
             <div class="hero-btns">
                 <a href="#productos" class="btn-main">Ver Recursos</a>
                 <a href="https://discord.gg/TuLink" class="btn-sec">Discord</a>
@@ -48,12 +47,10 @@
         <div class="product-grid">
             
             <div class="product-card">
-                <div class="product-img-container">
-                    <img src="logo.png" alt="Script 1">
-                </div>
+                <div class="product-img-container"><img src="logo.png" alt="Script"></div>
                 <div class="product-info">
                     <h3>Sistema de Radio V2</h3>
-                    <p>Integración con inventario, PTT y frecuencias configurables.</p>
+                    <p>Radio comunicador para MTA:SA con frecuencias configurables.</p>
                     <div class="product-footer">
                         <span class="price">$7.00 USD</span>
                         <button class="buy-btn" onclick="processPurchase('https://link-de-pago.com', 'Radio V2')">Comprar</button>
@@ -62,12 +59,10 @@
             </div>
 
             <div class="product-card">
-                <div class="product-img-container">
-                    <img src="logo.png" alt="Script 2">
-                </div>
+                <div class="product-img-container"><img src="logo.png" alt="Script"></div>
                 <div class="product-info">
                     <h3>Inventario Pro</h3>
-                    <p>Sistema de inventario moderno con sistema de peso y slots.</p>
+                    <p>Sistema de Inventario completo para Roleplay.</p>
                     <div class="product-footer">
                         <span class="price">$15.00 USD</span>
                         <button class="buy-btn" onclick="processPurchase('https://link-de-pago.com', 'Inventario')">Comprar</button>
@@ -77,10 +72,6 @@
 
         </div>
     </main>
-
-    <footer>
-        <p>&copy; 2025 DomiMarket. Todos los derechos reservados.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

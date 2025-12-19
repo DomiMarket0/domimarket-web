@@ -3,45 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Premium Store</title>
+    <title>DomiMarket | Premium MTA Scripts</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <div class="navbar">
-            <img src="logo.png" alt="Logo" class="logo">
-            <div class="user-info" id="user-display">
-                <button id="login-btn" class="discord-btn">Vincular Discord</button>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="logo.png" alt="DomiMarket" class="logo">
+                <span>DOMI<span class="red-text">MARKET</span></span>
             </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+            <div id="auth-section">
+                <button id="login-btn" class="discord-btn" onclick="loginDiscord()">Iniciar Sesión</button>
+            </div>
+        </nav>
     </header>
 
     <section class="hero">
-        <h1>DOMI<span class="highlight">MARKET</span></h1>
-        <p>Los mejores scripts y servicios premium.</p>
-    </section>
-
-    <main class="container">
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="badge">Nuevo</div>
-                <img src="logo.png" alt="Producto">
-                <h3>Script VIP Exclusive</h3>
-                <p>Acceso total a funciones únicas para tu servidor.</p>
-                <div class="price">$15.00 USD</div>
-                <button class="buy-btn" onclick="checkLogin('Script VIP')">Comprar ahora</button>
-            </div>
-
-            <div class="product-card">
-                <img src="logo.png" alt="Producto">
-                <h3>Soporte Técnico</h3>
-                <p>Ayuda profesional 24/7 para tus configuraciones.</p>
-                <div class="price">$10.00 USD</div>
-                <button class="buy-btn" onclick="checkLogin('Soporte')">Comprar ahora</button>
+        <div class="hero-content">
+            <h1>Bienvenido a <span class="highlight">DomiMarket</span></h1>
+            <p>Tu fuente de Models y Scripts premium para MTA. Lleva tu servidor al siguiente nivel.</p>
+            <div class="hero-btns">
+                <a href="#productos" class="btn-main">Ver Recursos</a>
+                <a href="https://discord.gg/TuLink" class="btn-sec">Discord</a>
             </div>
         </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item"><h3>+100</h3><p>Clientes</p></div>
+        <div class="stat-item"><h3>+20</h3><p>Productos</p></div>
+        <div class="stat-item"><h3>+50</h3><p>Ventas</p></div>
+    </section>
+
+    <main id="productos" class="container">
+        <h2 class="section-title">Productos <span class="red-text">Destacados</span></h2>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="logo.png" alt="Script 1">
+                </div>
+                <div class="product-info">
+                    <h3>Sistema de Radio V2</h3>
+                    <p>Integración con inventario, PTT y frecuencias configurables.</p>
+                    <div class="product-footer">
+                        <span class="price">$7.00 USD</span>
+                        <button class="buy-btn" onclick="processPurchase('https://link-de-pago.com', 'Radio V2')">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="logo.png" alt="Script 2">
+                </div>
+                <div class="product-info">
+                    <h3>Inventario Pro</h3>
+                    <p>Sistema de inventario moderno con sistema de peso y slots.</p>
+                    <div class="product-footer">
+                        <span class="price">$15.00 USD</span>
+                        <button class="buy-btn" onclick="processPurchase('https://link-de-pago.com', 'Inventario')">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
+
+    <footer>
+        <p>&copy; 2025 DomiMarket. Todos los derechos reservados.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Tienda Oficial</title>
+    <title>DomiMarket | Premium Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,36 +11,37 @@
     <header>
         <div class="navbar">
             <img src="logo.png" alt="Logo" class="logo">
-            <nav>
-                <a href="#">Inicio</a>
-                <a href="#productos">Productos</a>
-                <a href="#">Soporte</a>
-            </nav>
-            <button id="login-btn" class="discord-btn">Vincular con Discord</button>
+            <div class="user-info" id="user-display">
+                <button id="login-btn" class="discord-btn">Vincular Discord</button>
+            </div>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Bienvenido a <span class="highlight">DomiMarket</span></h1>
-        <p>Soluciones premium y scripts avanzados para tu servidor.</p>
-        <a href="#productos" class="btn-primary">Ver Catálogo</a>
+        <h1>DOMI<span class="highlight">MARKET</span></h1>
+        <p>Los mejores scripts y servicios premium.</p>
     </section>
 
-    <section id="productos" class="products">
-        <h2>Nuestros Productos</h2>
+    <main class="container">
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-image">
-                    <img src="logo.png" alt="Script Pack">
-                </div>
-                <h3>Script Pack Premium</h3>
-                <p>Acceso total a todas las herramientas de DomiMarket.</p>
-                <span class="price">$15.00 USD</span>
-                <button class="buy-btn">Comprar ahora</button>
+                <div class="badge">Nuevo</div>
+                <img src="logo.png" alt="Producto">
+                <h3>Script VIP Exclusive</h3>
+                <p>Acceso total a funciones únicas para tu servidor.</p>
+                <div class="price">$15.00 USD</div>
+                <button class="buy-btn" onclick="checkLogin('Script VIP')">Comprar ahora</button>
             </div>
 
+            <div class="product-card">
+                <img src="logo.png" alt="Producto">
+                <h3>Soporte Técnico</h3>
+                <p>Ayuda profesional 24/7 para tus configuraciones.</p>
+                <div class="price">$10.00 USD</div>
+                <button class="buy-btn" onclick="checkLogin('Soporte')">Comprar ahora</button>
             </div>
-    </section>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>

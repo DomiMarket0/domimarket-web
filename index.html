@@ -22,15 +22,15 @@
 
                 <div id="user-profile" class="user-dropdown" style="display: none;">
                     <div class="user-info-btn" onclick="toggleMenu()">
-                        <img src="" id="user-avatar" alt="Avatar">
-                        <span id="user-name">Cargando...</span>
-                        <i class="fas fa-chevron-down" style="margin-left: 10px; font-size: 0.8rem;"></i>
+                        <img src="" id="user-avatar" alt="User">
+                        <span id="user-name">Usuario</span>
+                        <i class="fas fa-chevron-down" style="margin-left: 10px;"></i>
                     </div>
                     <div id="dropdown-menu" class="dropdown-content">
-                        <a href="#area-cliente"><i class="fas fa-user-tie"></i> Área cliente</a>
-                        <a href="#tickets"><i class="fas fa-ticket-alt"></i> Ticket</a>
-                        <a href="#resenas"><i class="fas fa-star"></i> Reseña</a>
-                        <hr>
+                        <a href="#"><i class="fas fa-th-large"></i> Área cliente</a>
+                        <a href="#"><i class="fas fa-ticket-alt"></i> Ticket</a>
+                        <a href="#"><i class="fas fa-star"></i> Reseña</a>
+                        <div class="divider"></div>
                         <a href="#" onclick="logout()" class="logout-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
                     </div>
                 </div>
@@ -39,23 +39,10 @@
     </header>
 
     <section class="hero">
-        <h1>Bienvenido a <span class="highlight">DomiMarket</span></h1>
-        <p>Scripts de alta calidad para tu servidor MTA.</p>
-    </section>
-
-    <section id="area-cliente" class="container" style="display:none; padding-top: 100px;">
-        <h2>Área de <span class="red-text">Cliente</span></h2>
-        <p>Aquí aparecerán tus productos comprados pronto.</p>
-    </section>
-
-    <section id="tickets" class="container" style="display:none; padding-top: 100px;">
-        <h2>Soporte por <span class="red-text">Tickets</span></h2>
-        <p>¿Necesitas ayuda? Abre un ticket directamente a nuestro Discord.</p>
-    </section>
-
-    <section id="resenas" class="container" style="display:none; padding-top: 100px;">
-        <h2>Deja tu <span class="red-text">Reseña</span></h2>
-        <p>Tu opinión nos ayuda a mejorar.</p>
+        <div class="hero-content">
+            <h1>Expertos en <span class="highlight">MTA:SA</span></h1>
+            <p>Contenido premium y scripts de alta calidad para tu servidor.</p>
+        </div>
     </section>
 
     <script src="script.js"></script>

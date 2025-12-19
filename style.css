@@ -1,83 +1,99 @@
-/* --- Estilos del Menú de Usuario (Igual a tu imagen) --- */
-.user-dropdown {
-    position: relative;
-    display: inline-block;
+/* --- Colores Principales --- */
+:root {
+    --main-red: #ff0000;
+    --dark-bg: #0b0b0b;
+    --card-bg: #111111;
 }
 
+body {
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: #000;
+    border-bottom: 2px solid var(--main-red);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.red-text { color: var(--main-red); }
+.highlight { color: var(--main-red); text-shadow: 0 0 15px rgba(255, 0, 0, 0.7); }
+
+/* --- Botón Usuario Logueado (ROJO) --- */
 .user-info-btn {
-    background: #00ff00; /* Verde neón como la captura */
-    color: #000;
-    padding: 6px 18px;
+    background: var(--main-red);
+    color: #fff;
+    padding: 8px 18px;
     border-radius: 50px;
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 800;
     border: 2px solid #fff;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
     transition: 0.3s;
 }
 
-.user-info-btn:hover {
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
-}
-
 .user-info-btn img {
-    width: 28px;
-    height: 28px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     margin-right: 10px;
+    border: 1px solid white;
 }
 
-/* Caja del Menú Desplegable */
+/* --- Dropdown Menu --- */
+.user-dropdown { position: relative; }
+
 .dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #121212;
+    background: var(--card-bg);
     min-width: 200px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
     border-radius: 12px;
-    margin-top: 12px;
-    z-index: 2000;
     border: 1px solid #333;
+    margin-top: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     overflow: hidden;
 }
 
 .dropdown-content a {
     color: #eee;
-    padding: 14px 20px;
+    padding: 12px 20px;
     text-decoration: none;
     display: block;
-    font-size: 0.95rem;
-    transition: 0.2s;
-    text-align: left;
+    font-size: 0.9rem;
+    transition: 0.3s;
 }
 
-.dropdown-content i {
-    width: 25px;
-    color: #888;
-}
+.dropdown-content a i { width: 25px; color: #888; }
 
 .dropdown-content a:hover {
-    background-color: #222;
-    color: #00ff00;
+    background: #222;
+    color: var(--main-red);
 }
 
-.dropdown-content a:hover i {
-    color: #00ff00;
-}
+.dropdown-content a:hover i { color: var(--main-red); }
 
-.logout-link {
-    border-top: 1px solid #333;
-    color: #ff4444 !important;
-}
+.divider { height: 1px; background: #333; margin: 5px 0; }
+.logout-link { color: #ff4444 !important; border-top: 1px solid #333; }
 
 .show { display: block !important; }
 
-/* Resto de estilos generales */
-body { background: #0b0b0b; color: #fff; font-family: 'Poppins'; margin:0; }
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #000; border-bottom: 1px solid #222; }
-.red-text { color: red; }
-.highlight { color: red; text-shadow: 0 0 10px red; }
-.container { text-align: center; padding: 50px; }
-.discord-btn { background: red; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+.discord-btn {
+    background: var(--main-red);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}

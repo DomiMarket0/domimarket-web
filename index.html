@@ -6,6 +6,7 @@
     <title>DomiMarket | Premium Store</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -15,63 +16,47 @@
                 <img src="logo.png" alt="DomiMarket" class="logo">
                 <span>DOMI<span class="red-text">MARKET</span></span>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-            </ul>
+            
             <div id="auth-section">
                 <a href="login.html" id="login-btn" class="discord-btn">Iniciar Sesión</a>
+
+                <div id="user-profile" class="user-dropdown" style="display: none;">
+                    <div class="user-info-btn" onclick="toggleMenu()">
+                        <img src="" id="user-avatar" alt="Avatar">
+                        <span id="user-name">Cargando...</span>
+                        <i class="fas fa-chevron-down" style="margin-left: 10px; font-size: 0.8rem;"></i>
+                    </div>
+                    <div id="dropdown-menu" class="dropdown-content">
+                        <a href="#area-cliente"><i class="fas fa-user-tie"></i> Área cliente</a>
+                        <a href="#tickets"><i class="fas fa-ticket-alt"></i> Ticket</a>
+                        <a href="#resenas"><i class="fas fa-star"></i> Reseña</a>
+                        <hr>
+                        <a href="#" onclick="logout()" class="logout-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Bienvenido a <span class="highlight">DomiMarket</span></h1>
-            <p>Tu fuente de Models y Scripts premium para MTA.</p>
-            <div class="hero-btns">
-                <a href="#productos" class="btn-main">Ver Recursos</a>
-                <a href="https://discord.gg/TuLink" class="btn-sec">Discord</a>
-            </div>
-        </div>
+        <h1>Bienvenido a <span class="highlight">DomiMarket</span></h1>
+        <p>Scripts de alta calidad para tu servidor MTA.</p>
     </section>
 
-    <section class="stats">
-        <div class="stat-item"><h3>+100</h3><p>Clientes</p></div>
-        <div class="stat-item"><h3>+20</h3><p>Productos</p></div>
-        <div class="stat-item"><h3>+50</h3><p>Ventas</p></div>
+    <section id="area-cliente" class="container" style="display:none; padding-top: 100px;">
+        <h2>Área de <span class="red-text">Cliente</span></h2>
+        <p>Aquí aparecerán tus productos comprados pronto.</p>
     </section>
 
-    <main id="productos" class="container">
-        <h2 class="section-title">Productos <span class="red-text">Destacados</span></h2>
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <div class="product-img-container"><img src="logo.png" alt="Script"></div>
-                <div class="product-info">
-                    <h3>Sistema de Radio V2</h3>
-                    <p>Radio comunicador para MTA:SA con frecuencias configurables.</p>
-                    <div class="product-footer">
-                        <span class="price">$7.00 USD</span>
-                        <button class="buy-btn" onclick="processPurchase('https://link-de-pago.com', 'Radio V2')">Comprar</button>
-                    </div>
-                </div>
-            </div>
+    <section id="tickets" class="container" style="display:none; padding-top: 100px;">
+        <h2>Soporte por <span class="red-text">Tickets</span></h2>
+        <p>¿Necesitas ayuda? Abre un ticket directamente a nuestro Discord.</p>
+    </section>
 
-            <div class="product-card">
-                <div class="product-img-container"><img src="logo.png" alt="Script"></div>
-                <div class="product-info">
-                    <h3>Inventario Pro</h3>
-                    <p>Sistema de Inventario completo para Roleplay.</p>
-                    <div class="product-footer">
-                        <span class="price">$15.00 USD</span>
-                        <button class="buy-btn" onclick="processPurchase('https://link-de-pago.com', 'Inventario')">Comprar</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </main>
+    <section id="resenas" class="container" style="display:none; padding-top: 100px;">
+        <h2>Deja tu <span class="red-text">Reseña</span></h2>
+        <p>Tu opinión nos ayuda a mejorar.</p>
+    </section>
 
     <script src="script.js"></script>
 </body>

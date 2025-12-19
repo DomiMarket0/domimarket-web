@@ -1,11 +1,11 @@
-/* --- Reset y Base --- */
+/* Reset Total */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { background: #000; color: #fff; overflow-x: hidden; }
 
-/* --- Navbar Fija --- */
+/* NAVBAR PROTEGIDA */
 .navbar {
     background: #050505;
-    height: 70px;
+    height: 75px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -13,12 +13,12 @@ body { background: #000; color: #fff; overflow-x: hidden; }
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 10000;
 }
 
 .nav-container {
-    width: 90%;
-    max-width: 1400px;
+    width: 95%;
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -26,15 +26,15 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 }
 
 .logo-box { display: flex; align-items: center; gap: 10px; }
-.mini-logo { height: 35px; width: auto; }
-.brand { font-weight: 900; font-size: 1.1rem; letter-spacing: 1px; }
+.mini-logo { height: 40px; width: auto; }
+.brand { font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; }
 .red { color: #ff0000; }
 
-/* --- Botón Iniciar Sesión --- */
+/* BOTON LOGIN */
 .login-button {
     background: #ff0000;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
@@ -42,43 +42,51 @@ body { background: #000; color: #fff; overflow-x: hidden; }
     transition: 0.3s;
 }
 
-/* --- Menú de Perfil Activo --- */
-.user-menu { position: relative; }
-
+/* PERFIL ROJO */
 .user-active-btn {
     background: #ff0000;
-    padding: 6px 15px;
+    padding: 7px 15px;
     border-radius: 50px;
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
     border: 2px solid #fff;
-    font-size: 14px;
     font-weight: 700;
 }
 
-.user-active-btn img { width: 28px; height: 28px; border-radius: 50%; border: 1px solid #fff; }
+.user-active-btn img { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #fff; }
 
 .menu-box {
     display: none;
     position: absolute;
     right: 0;
-    top: 55px;
-    background: #111;
+    top: 60px;
+    background: #0a0a0a;
     min-width: 200px;
     border: 1px solid #333;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.9);
 }
 
-.menu-box a { color: #fff; padding: 12px 18px; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 14px; transition: 0.2s; }
-.menu-box a:hover { background: #222; color: #ff0000; }
+.menu-box a { color: #fff; padding: 12px 18px; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.menu-box a:hover { background: #1a1a1a; color: #ff0000; }
 .line { height: 1px; background: #333; margin: 5px 0; }
 .exit { color: #ff4444 !important; }
 .show { display: block !important; }
 
-/* --- Hero --- */
-.hero { padding-top: 150px; text-align: center; min-height: 80vh; }
-.hero-img { width: 250px; height: auto; margin-bottom: 20px; }
+/* CUERPO CENTRAL */
+.hero-section {
+    padding-top: 180px;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.main-img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 15px rgba(255,0,0,0.3));
+}
+
 .red-glow { color: #ff0000; text-shadow: 0 0 15px #ff0000; }

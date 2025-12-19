@@ -3,43 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Tienda Oficial</title>
+    <title>DomiMarket | Store</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo-container">
-            <img src="logo.png" alt="Logo" class="logo-img">
-            <span>DOMI<span class="red-text">MARKET</span></span>
-        </div>
-        
-        <div id="auth-section">
-            <a href="login.html" id="login-btn" class="discord-btn">Iniciar Sesión</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-box">
+                <img src="logo.png" alt="Logo" class="mini-logo">
+                <span class="brand">DOMI<span class="red">MARKET</span></span>
+            </div>
+            
+            <div id="auth-section">
+                <a href="login.html" id="login-btn" class="login-button">Iniciar Sesión</a>
 
-            <div id="user-profile" class="user-dropdown" style="display: none;">
-                <div class="user-info-btn" onclick="toggleMenu()">
-                    <img src="" id="user-avatar" alt="User">
-                    <span id="user-name">Usuario</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div id="dropdown-menu" class="dropdown-content">
-                    <a href="#"><i class="fas fa-th-large"></i> Área cliente</a>
-                    <a href="#"><i class="fas fa-ticket-alt"></i> Ticket</a>
-                    <a href="#"><i class="fas fa-star"></i> Reseña</a>
-                    <div class="divider"></div>
-                    <a href="#" onclick="logout()" class="logout-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                <div id="user-profile" class="user-menu" style="display: none;">
+                    <div class="user-active-btn" onclick="toggleMenu()">
+                        <img src="" id="user-avatar" alt="User">
+                        <span id="user-name">Usuario</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div id="dropdown-menu" class="menu-box">
+                        <a href="#"><i class="fas fa-user-circle"></i> Área cliente</a>
+                        <a href="#"><i class="fas fa-ticket-alt"></i> Ticket</a>
+                        <a href="#"><i class="fas fa-star"></i> Reseña</a>
+                        <div class="line"></div>
+                        <a href="#" onclick="logout()" class="exit"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="hero">
-        <h1>Expertos en <span class="highlight">MTA:SA</span></h1>
-        <p>Scripts únicos y soporte garantizado.</p>
-    </section>
+    <header class="hero-section">
+        <div class="hero-main">
+            <img src="logo.png" alt="Main Logo" class="main-img">
+            <h1>Expertos en <span class="red-glow">MTA:SA</span></h1>
+            <p>Scripts únicos y soporte garantizado.</p>
+        </div>
+    </header>
 
     <script src="script.js"></script>
 </body>

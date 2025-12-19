@@ -1,99 +1,155 @@
-/* --- Colores Principales --- */
-:root {
-    --main-red: #ff0000;
-    --dark-bg: #0b0b0b;
-    --card-bg: #111111;
+/* --- RESET GENERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: var(--dark-bg);
+    background-color: #0b0b0b;
     color: white;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
+    overflow-x: hidden;
 }
 
+/* --- BARRA DE NAVEGACIÓN --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 8%;
+    padding: 10px 5%;
     background: #000;
-    border-bottom: 2px solid var(--main-red);
+    border-bottom: 2px solid #ff0000;
+    height: 70px;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.red-text { color: var(--main-red); }
-.highlight { color: var(--main-red); text-shadow: 0 0 15px rgba(255, 0, 0, 0.7); }
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
 
-/* --- Botón Usuario Logueado (ROJO) --- */
+.logo {
+    height: 40px;
+}
+
+.red-text { color: #ff0000; }
+
+/* --- BOTÓN INICIAR SESIÓN (ESTADO NORMAL) --- */
+.discord-btn {
+    background: #ff0000;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.discord-btn:hover {
+    background: #cc0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+/* --- PERFIL DE USUARIO (CUANDO ESTÁ LOGUEADO) --- */
+.user-dropdown {
+    position: relative;
+}
+
 .user-info-btn {
-    background: var(--main-red);
-    color: #fff;
-    padding: 8px 18px;
+    background: #ff0000; /* Fondo rojo como pediste */
+    color: white;
+    padding: 5px 15px;
     border-radius: 50px;
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-weight: 800;
+    font-weight: 600;
+    font-size: 14px;
     border: 2px solid #fff;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-    transition: 0.3s;
 }
 
 .user-info-btn img {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     margin-right: 10px;
     border: 1px solid white;
 }
 
-/* --- Dropdown Menu --- */
-.user-dropdown { position: relative; }
-
+/* --- MENÚ DESPLEGABLE (ESTILO ETVX / FLEX) --- */
 .dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    background: var(--card-bg);
-    min-width: 200px;
-    border-radius: 12px;
+    top: 50px;
+    background-color: #1a1a1a; /* Fondo oscuro como tu captura */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    z-index: 1100;
     border: 1px solid #333;
-    margin-top: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     overflow: hidden;
 }
 
 .dropdown-content a {
-    color: #eee;
-    padding: 12px 20px;
+    color: white;
+    padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 0.9rem;
     transition: 0.3s;
 }
 
-.dropdown-content a i { width: 25px; color: #888; }
-
-.dropdown-content a:hover {
-    background: #222;
-    color: var(--main-red);
+.dropdown-content a i {
+    width: 20px;
+    color: #888;
 }
 
-.dropdown-content a:hover i { color: var(--main-red); }
+.dropdown-content a:hover {
+    background-color: #252525;
+    color: #ff0000;
+}
 
-.divider { height: 1px; background: #333; margin: 5px 0; }
-.logout-link { color: #ff4444 !important; border-top: 1px solid #333; }
+.dropdown-content a:hover i {
+    color: #ff0000;
+}
+
+.divider {
+    height: 1px;
+    background: #333;
+    margin: 5px 0;
+}
+
+.logout-link {
+    color: #ff4444 !important;
+}
 
 .show { display: block !important; }
 
-.discord-btn {
-    background: var(--main-red);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
+/* --- HERO SECTION --- */
+.hero {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.highlight {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomiMarket Hub</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="sdhOEZX.png" alt="DomiMarket Logo">
+            <span class="logo-text">DomiMarket</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+        </ul>
+        <button id="discordBtn" class="discord-btn" onclick="loginWithDiscord()">
+            <img id="btnAvatar" src="" style="display:none; width:25px; border-radius:50%">
+            <span id="btnText">Vincular con Discord</span>
+        </button>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <h1>Bienvenido a <span class="brand">DomiMarket</span></h1>
+        <p>Soluciones premium y scripts avanzados.</p>
+        <a href="#productos" class="btn-main">Ver Catálogo</a>
+    </section>
+
+    <section id="productos" class="container">
+        <h2 class="title">Nuestros Productos</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Script Pack</h3>
+                <p>Acceso total a DomiMarket</p>
+                <button class="btn-buy">Comprar</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script> </body>
+</html>

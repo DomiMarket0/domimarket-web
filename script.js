@@ -12,18 +12,21 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const grid = document.getElementById('grid-productos');
 
-// Escuchar los productos en tiempo real
-const grid = document.querySelector('.products-grid');
-
+// Leer productos en tiempo real
 onSnapshot(collection(db, "productos"), (snapshot) => {
-    grid.innerHTML = ""; // Limpiar antes de cargar
+    grid.innerHTML = ""; 
+    if (snapshot.empty) {
+        grid.innerHTML = "<p>No hay productos disponibles por ahora.</p>";
+        return;
+    }
     snapshot.forEach((doc) => {
         const p = doc.data();
         grid.innerHTML += `
             <div class="product-card" data-aos="fade-up">
                 <div class="product-img-box">
-                    <img src="${p.imagen || 'logo.png'}" alt="Script">
+                    <img src="${p.imagen || 'logo.png'}" alt="Script" onerror="this.src='logo.png'">
                 </div>
                 <h3>${p.nombre}</h3>
                 <p>${p.descripcion}</p>

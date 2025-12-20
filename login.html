@@ -1,15 +1,38 @@
-<button id="discord-auth-btn" class="btn-primary">
-    <i class="fab fa-discord"></i> AUTORIZAR DISCORD
-</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | DomiMarket</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+</head>
+<body style="display:flex; align-items:center; justify-content:center; height:100vh; background:#050505; font-family: 'Poppins', sans-serif;">
 
-<script>
-    // Tu Client ID que me pasaste antes
-    const CLIENT_ID = '1438645485773652241'; 
-    // La URL de tu web donde debe volver después de autorizar
-    const REDIRECT_URI = encodeURIComponent(window.location.origin + '/index.html');
-    const DISCORD_URL = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify`;
+    <div class="footer-card" style="margin:0; width:400px; padding: 40px; border: 1px solid #222; border-radius: 20px; text-align: center; background: #111;">
+        <i class="fab fa-discord" style="font-size: 4rem; color: #5865F2; text-shadow: 0 0 20px rgba(88,101,242,0.4);"></i>
+        <h2 style="margin-top:20px; color: white; font-weight: 900;">AUTORIZAR ACCESO</h2>
+        <p style="color: #888; margin-bottom: 30px;">Conecta tu cuenta de Discord para acceder a los scripts premium de DomiMarket.</p>
+        
+        <button id="auth-discord" class="btn-primary" style="width:100%; border:none; cursor:pointer; background: #5865F2; color: white; padding: 15px; border-radius: 8px; font-weight: 900; font-size: 1rem; transition: 0.3s;">
+            <i class="fab fa-discord"></i> INICIAR CON DISCORD
+        </button>
+        
+        <div style="margin-top: 20px;">
+            <a href="index.html" style="color:#666; text-decoration:none; font-size: 0.9rem;">← Volver al inicio</a>
+        </div>
+    </div>
 
-    document.getElementById('discord-auth-btn').onclick = function() {
-        window.location.href = DISCORD_URL;
-    };
-</script>
+    <script>
+        const CLIENT_ID = '1438645485773652241';
+        // URL idéntica a la que configuraste en el panel de desarrollador
+        const REDIRECT_URI = encodeURIComponent('https://domimarket0.github.io/domimarket-web/index.html');
+        const DISCORD_URL = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify`;
+
+        document.getElementById('auth-discord').onclick = function() {
+            window.location.href = DISCORD_URL;
+        };
+    </script>
+</body>
+</html>

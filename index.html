@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Tienda de Scripts</title>
+    <title>DomiMarket | Premium Store</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -16,22 +16,23 @@
             <li><a href="https://discord.gg/TU_LINK" target="_blank">Contacto</a></li>
         </ul>
         <div class="nav-auth">
-            <button class="btn-login" id="loginBtn">Iniciar Sesión</button>
-            <a href="https://discord.gg/TU_LINK" class="btn-discord">Discord Store</a>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=TU_CLIENT_ID&scope=identify" class="btn-discord-login">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" width="20"> Iniciar Sesión
+            </a>
         </div>
     </nav>
 
     <header class="hero">
         <h1 class="fade-in">NUESTROS SCRIPTS</h1>
+        <p class="fade-in-delayed">Optimización y calidad para tu servidor</p>
         <div class="categories fade-in-delayed">
             <button class="cat-btn active">Todos</button>
             <button class="cat-btn">Robos</button>
             <button class="cat-btn">Sistemas</button>
-            <button class="cat-btn">Mapeos</button>
         </div>
     </header>
 
-    <main class="container">
+    <main class="container" id="productos">
         <div id="grid-productos" class="products-grid">
             </div>
     </main>

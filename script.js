@@ -13,18 +13,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// FUNCIÓN PARA EL MENÚ (Cambia según si estás logueado o no)
-function renderMenu() {
+// CARGAR MENÚ SEGÚN SESIÓN
+function actualizarNavegacion() {
     const nav = document.getElementById('auth-nav');
-    const logueado = localStorage.getItem('logged') === 'true';
+    const isLogged = localStorage.getItem('logged') === 'true';
 
-    if (logueado) {
+    if (isLogged) {
         nav.innerHTML = `
             <li><a href="index.html" class="nav-item">Inicio</a></li>
-            <li><a href="dashboard.html" class="nav-item panel-active">Panel</a></li>
-            <li><a href="#" id="logout" class="nav-item" style="color:red">Salir</a></li>
+            <li><a href="dashboard.html" class="nav-item panel-btn">Panel</a></li>
+            <li><a href="#" id="btn-salir" class="nav-item" style="color:red">Salir</a></li>
         `;
-        document.getElementById('logout').onclick = () => {
+        document.getElementById('btn-salir').onclick = () => {
             localStorage.setItem('logged', 'false');
             location.reload();
         };
@@ -36,40 +36,32 @@ function renderMenu() {
     }
 }
 
-// CARGA DE PRODUCTOS (Blindada contra errores)
+// CARGAR PRODUCTOS
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
-        grid.innerHTML = "";
-        
         if (snapshot.empty) {
-            grid.innerHTML = `
-                <div style="grid-column: 1/-1; text-align:center; padding:100px 0;">
-                    <i class="fas fa-box-open" style="font-size:3rem; color:#222; margin-bottom:15px;"></i>
-                    <h2 style="color:#444;">No hay productos en la tienda aún</h2>
-                </div>`;
+            grid.innerHTML = "<p style='color:#444; text-align:center; width:100%; margin-top:50px;'>No hay productos publicados.</p>";
             return;
         }
-
+        grid.innerHTML = "";
         snapshot.forEach((doc) => {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || ''}" class="product-img">
+                    <img src="${p.imagen || 'logo.png'}" style="width:100%; height:180px; object-fit:cover;">
                     <div class="product-info">
                         <h3>${p.nombre}</h3>
                         <p>${p.descripcion}</p>
                     </div>
-                    <div class="action-bar">
-                        <span class="price">$${p.precio}</span>
+                    <div class="action-panel">
+                        <a href="#" class="btn-details">DETALLES</a>
                         <button class="btn-buy">COMPRAR</button>
                     </div>
-                </div>`;
+                </div>
+            `;
         });
-    }, (error) => {
-        console.error("Error Firebase:", error);
-        grid.innerHTML = "<p>Error de conexión.</p>";
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderMenu);
+document.addEventListener('DOMContentLoaded', actualizarNavegacion);

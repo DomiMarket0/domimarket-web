@@ -1,50 +1,60 @@
-/* DISEÑO DE APARTADO PRODUCTOS */
-.section-productos { padding: 100px 0; }
-.header-titulos { text-align: left; margin-bottom: 60px; }
-.badge-rojo { color: var(--rojo-principal); font-weight: 900; letter-spacing: 2px; font-size: 0.8rem; }
-.titulo-seccion { font-size: 3.5rem; font-weight: 900; margin: 10px 0; }
-.titulo-seccion span { color: var(--rojo-principal); text-shadow: 0 0 15px var(--rojo-brillo); }
+/* DISEÑO DE PRODUCTOS ESTILO ONE-STORE ROJO */
+.seccion-premium {
+    padding: 80px 20px;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a0000 0%, #000 100%);
+}
 
-.grid-productos-premium {
+.contenedor-titulos { margin-bottom: 50px; }
+.etiqueta-roja { color: #ff0000; font-weight: 800; font-size: 0.7rem; letter-spacing: 2px; }
+.titulo-principal { font-size: 2.5rem; font-weight: 900; color: white; }
+.titulo-principal span { color: #ff0000; text-shadow: 0 0 15px rgba(255, 0, 0, 0.5); }
+.descripcion-tienda { color: #888; font-size: 0.9rem; max-width: 500px; margin: 10px auto; }
+
+/* CUADRÍCULA */
+.cuadricula-productos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.card-producto-elite {
-    background: #0f0f0f;
-    border: 1px solid rgba(255, 0, 0, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.4s ease;
+/* TARJETA INDIVIDUAL */
+.tarjeta-elite {
+    background: rgba(15, 15, 15, 0.9);
+    border: 2px solid rgba(255, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.4s ease;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-.card-producto-elite:hover {
-    border-color: var(--rojo-principal);
+.tarjeta-elite:hover {
+    border-color: #ff0000;
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
 }
 
-.imagen-container { position: relative; width: 100%; height: 200px; }
-.imagen-container img { width: 100%; height: 100%; object-fit: cover; }
-
-.info-producto { padding: 25px; }
-.info-producto h3 { font-size: 1.4rem; margin-bottom: 10px; }
-.desc-breve { color: #888; font-size: 0.9rem; margin-bottom: 20px; min-height: 45px; }
-.precio-tag { font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 20px; }
-
-/* BOTONES ESTILO DUAL */
-.acciones-dobles { display: flex; gap: 10px; }
-.btn-comprar {
-    flex: 1; background: var(--rojo-principal); color: white; border: none;
-    padding: 12px; border-radius: 6px; font-weight: 800; cursor: pointer;
-    transition: 0.3s;
-}
-.btn-detalles {
-    flex: 1; background: #fff; color: #000; border: none;
-    padding: 12px; border-radius: 6px; font-weight: 800; cursor: pointer;
-    transition: 0.3s;
+.caja-imagen img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
-.btn-comprar:hover { filter: brightness(1.2); box-shadow: 0 0 15px var(--rojo-brillo); }
-.btn-detalles:hover { background: #ccc; }
+.cuerpo-tarjeta h3 { font-size: 1.1rem; color: white; margin-bottom: 5px; }
+.precio { color: #ff0000; font-weight: 900; font-size: 1.2rem; margin-bottom: 15px; }
+
+/* BOTONES DOBLES */
+.botones-grupo { display: flex; gap: 10px; justify-content: center; }
+.btn-accion-rojo {
+    background: #ff0000; color: white; border: none; padding: 10px 15px;
+    border-radius: 8px; cursor: pointer; transition: 0.3s;
+}
+.btn-accion-blanco {
+    background: transparent; color: white; border: 1px solid white;
+    padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.8rem;
+}
+
+.btn-accion-rojo:hover { filter: brightness(1.2); box-shadow: 0 0 10px #ff0000; }
+.btn-accion-blanco:hover { background: white; color: black; }

@@ -24,12 +24,12 @@ function renderUserMenu(username) {
     const nav = document.getElementById('auth-nav');
     if (!nav) return;
 
-    // Mantenemos tu diseño pero cambiamos el botón por SALIR
+    // Insertamos tu nombre y el botón SALIR respetando tu estilo
     nav.innerHTML = `
         <li><a href="index.html" style="color: white; text-decoration: none;">Inicio</a></li>
         <li><a href="#productos" style="color: white; text-decoration: none;">Productos</a></li>
         <li style="color: #5865F2; font-weight: bold;">${username}</li>
-        <li><a href="#" id="logout-btn" class="btn-nav-login" style="background: red; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">SALIR</a></li>
+        <li><a href="#" id="logout-btn" style="background: red; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 0 10px rgba(255,0,0,0.5);">SALIR</a></li>
     `;
 
     document.getElementById('logout-btn').onclick = (e) => {

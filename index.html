@@ -3,79 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Script Marketplace Premium</title>
+    <title>DomiMarket Premium | Enterprise Script Solutions</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="bg-glow"></div>
+<body class="dark-theme">
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <span>DOMIMARKET</span>
+        </div>
+    </div>
 
-    <header class="main-header">
-        <nav class="container navbar">
-            <div class="logo">DOMI<span>MARKET</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+    <header class="navbar-enterprise">
+        <nav class="container nav-flex">
+            <div class="brand">
+                <div class="logo-box">DM</div>
+                <span class="brand-name">DOMI<span>MARKET</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="#features" class="nav-link">Servicios</a></li>
+                <li><a href="#products" class="nav-link">Marketplace</a></li>
+                <li><a href="#faq" class="nav-link">Soporte</a></li>
             </ul>
-            <div id="auth-container">
-                <a href="login.html" class="btn-primary">INICIAR SESIÓN</a>
+            <div class="auth-actions" id="auth-container">
+                <a href="login.html" class="btn-login-corp">
+                    <i class="fas fa-sign-in-alt"></i> ACCESO CLIENTE
+                </a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero container">
-            <div class="hero-content animate-up">
-                <span class="badge">NUEVOS SCRIPTS 2025</span>
-                <h1>Domina el Servidor con <span>DomiMarket</span></h1>
-                <p>Scripts optimizados, soporte 24/7 y la mejor comunidad de desarrolladores en un solo lugar.</p>
-                <div class="hero-btns">
-                    <a href="#productos" class="btn-primary">Explorar Tienda</a>
-                    <a href="https://discord.gg/tu-link" class="btn-secondary"><i class="fab fa-discord"></i> Discord</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="stats container">
-            <div class="stat-card">
-                <h3>+1,500</h3>
-                <p>Clientes Felices</p>
-            </div>
-            <div class="stat-card">
-                <h3>+200</h3>
-                <p>Scripts Premium</p>
-            </div>
-            <div class="stat-card">
-                <h3>99.9%</h3>
-                <p>Uptime Garantizado</p>
-            </div>
-        </section>
-
-        <section id="productos" class="products container">
-            <h2 class="section-title">Productos Destacados</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-img"></div>
-                    <div class="product-info">
-                        <h4>Admin System Pro</h4>
-                        <p>El sistema de administración más completo para tu servidor.</p>
-                        <span class="price">$19.99</span>
-                        <button class="btn-buy">Comprar Ahora</button>
+        <section class="hero-business">
+            <div class="hero-bg-overlay"></div>
+            <div class="container hero-grid">
+                <div class="hero-text-content">
+                    <div class="corporate-badge">MARKETPLACE VERIFICADO 2025</div>
+                    <h1>Elevamos la Calidad de tu <span>Servidor</span></h1>
+                    <p>Software de alto rendimiento diseñado para comunidades exigentes. Seguridad, optimización y soporte empresarial en cada línea de código.</p>
+                    <div class="hero-cta-group">
+                        <a href="#products" class="btn-main-red">EXPLORAR CATÁLOGO</a>
+                        <a href="#" class="btn-outline-white">SOLICITAR DEMO</a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="stats-enterprise">
+            <div class="container stats-flex">
+                <div class="stat-item">
+                    <span class="count">2.5k</span>
+                    <span class="label">LICENCIAS ACTIVAS</span>
+                </div>
+                <div class="stat-item">
+                    <span class="count">99%</span>
+                    <span class="label">SATISFACCIÓN</span>
+                </div>
+                <div class="stat-item">
+                    <span class="count">24/7</span>
+                    <span class="label">SOPORTE TÉCNICO</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="marketplace-section container">
+            <div class="section-header">
+                <h2>Catálogo de <span>Soluciones</span></h2>
+                <p>Scripts optimizados con sistema de licencia integrado.</p>
+            </div>
+            
+            <div class="products-container">
+                <article class="product-corp-card">
+                    <div class="product-visual">
+                        <img src="https://via.placeholder.com/400x200" alt="Script">
+                        <div class="price-tag">$29.99</div>
+                    </div>
+                    <div class="product-body">
+                        <h3>Sistema de Economía Global</h3>
+                        <p>Gestión avanzada de divisas con soporte para múltiples bancos y criptos.</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> Optimización 0.01ms</span>
+                            <span><i class="fas fa-check"></i> Open Source</span>
+                        </div>
+                        <button class="btn-buy-now">ADQUIRIR AHORA</button>
+                    </div>
+                </article>
                 </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <div class="footer-logo">DOMIMARKET</div>
-            <p>&copy; 2025 DomiMarket. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+    <footer class="footer-corporate">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="logo-box">DM</div>
+                <p>Líderes en desarrollo de software para plataformas de gaming y comunidades virtuales.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>soporte@domimarket.pro</p>
+                <div class="social-corp">
+                    <i class="fab fa-discord"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
             </div>
         </div>
     </footer>

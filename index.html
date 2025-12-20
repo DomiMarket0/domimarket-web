@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket</title>
+    <title>DomiMarket | Inicio</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilo de respaldo para evitar el fondo blanco mientras carga */
-        body { background-color: #000; color: #fff; margin: 0; font-family: sans-serif; }
+        /* Esto evita el bug de la pantalla blanca */
+        body { background-color: #000 !important; color: white; margin: 0; font-family: sans-serif; }
     </style>
 </head>
 <body>
     <header style="border-bottom: 1px solid #ff0000;">
-        <nav style="display: flex; justify-content: space-between; align-items: center; padding: 15px 50px;">
-            <div style="font-weight: 900; letter-spacing: 1px;">DOMIMARKET</div>
+        <nav style="display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: #000;">
+            <div class="logo" style="font-weight: 900; color: white;">DOMIMARKET</div>
             <ul id="auth-nav" style="list-style: none; display: flex; gap: 30px; align-items: center; margin: 0;">
-                <li><a href="index.html" style="color: #fff; text-decoration: none;">Inicio</a></li>
-                <li><a href="#productos" style="color: #fff; text-decoration: none;">Productos</a></li>
-                <li><a href="login.html" style="background: #ff0000; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 0 15px rgba(255,0,0,0.5);">INICIAR SESIÓN</a></li>
+                <li><a href="index.html" style="color: white; text-decoration: none;">Inicio</a></li>
+                <li><a href="#productos" style="color: white; text-decoration: none;">Productos</a></li>
+                <li><a href="login.html" style="background: #ff0000; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 0 15px rgba(255,0,0,0.5);">INICIAR SESIÓN</a></li>
             </ul>
         </nav>
     </header>

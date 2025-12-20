@@ -1,69 +1,31 @@
-:root {
-    --primary: #ff0000;
-    --bg: #050505;
-    --card-bg: #111111;
-    --border: #222222;
-}
-
-/* Base Blindada */
 body {
-    background-color: var(--bg) !important;
+    background-color: #050505 !important;
     color: white !important;
-    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Navbar Estable */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 8%;
-    background: #000 !important;
-    border-bottom: 1px solid var(--border);
-    min-height: 70px;
+    background: #000;
+    border-bottom: 1px solid #222;
 }
 
-.brand { font-size: 1.6rem; font-weight: 900; letter-spacing: 1px; }
-.red { color: var(--primary); }
-
-.nav-links { 
-    list-style: none; 
-    display: flex; 
-    gap: 25px; 
-    align-items: center; 
-    margin: 0; 
-    padding: 0;
-}
-
-.nav-links a { 
-    color: white !important; 
-    text-decoration: none; 
-    font-size: 0.9rem; 
-    font-weight: 600; 
-    transition: 0.3s; 
-}
-
-/* Botones con Brillo Neón */
 .btn-nav-login {
-    background: var(--primary) !important;
+    background: #ff0000 !important;
     padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 10px #ff0000;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .panel-btn {
-    border: 1px solid var(--primary);
-    padding: 8px 18px;
+    border: 1px solid #ff0000;
+    padding: 8px 15px;
     border-radius: 5px;
-    background: rgba(255, 0, 0, 0.1);
+    text-decoration: none;
 }
-
-.logout-link { 
-    color: #ff4444 !important; 
-    font-weight: 900; 
-    cursor: pointer;
-}
-
-.logout-link:hover { text-shadow: 0 0 10px #ff0000; }

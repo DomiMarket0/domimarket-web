@@ -6,7 +6,6 @@ async function handleDiscordLogin() {
 
     if (token) {
         localStorage.setItem('discord_token', token);
-        localStorage.setItem('logged', 'true');
         window.history.replaceState({}, document.title, window.location.pathname);
         
         try {
@@ -14,22 +13,22 @@ async function handleDiscordLogin() {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const user = await resp.json();
-            renderNav(user);
+            updateMenu(user.username);
         } catch (e) {
-            renderNav({ username: 'Usuario' });
+            updateMenu('Usuario');
         }
     }
 }
 
-function renderNav(user) {
+function updateMenu(username) {
     const nav = document.getElementById('auth-nav');
-    if (!nav || !user) return;
+    if (!nav) return;
 
-    // Respetamos tu diseño de lista y el botón rojo original
+    // Cambiamos el botón respetando tu diseño original de lista
     nav.innerHTML = `
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#productos">Productos</a></li>
-        <li style="color:white; margin-left:15px; font-weight:bold;">${user.username}</li>
+        <li style="color:white; font-weight:bold; margin: 0 10px;">${username}</li>
         <li><a href="#" id="logout-btn" class="btn-nav-login" style="background:red !important;">SALIR</a></li>
     `;
 

@@ -1,3 +1,15 @@
-// Cuando el usuario entra con éxito:
-localStorage.setItem('logged', 'true'); // <--- ESTO ES LO QUE ACTIVA EL BOTÓN "SALIR"
-window.location.href = "index.html";
+<button id="discord-auth-btn" class="btn-primary">
+    <i class="fab fa-discord"></i> AUTORIZAR DISCORD
+</button>
+
+<script>
+    // Tu Client ID que me pasaste antes
+    const CLIENT_ID = '1438645485773652241'; 
+    // La URL de tu web donde debe volver después de autorizar
+    const REDIRECT_URI = encodeURIComponent(window.location.origin + '/index.html');
+    const DISCORD_URL = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify`;
+
+    document.getElementById('discord-auth-btn').onclick = function() {
+        window.location.href = DISCORD_URL;
+    };
+</script>

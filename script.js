@@ -13,54 +13,62 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// FUNCION DEL MENU (Esta es la que cambia el botón)
+// 1. Control del Menú y Botón Salir
 function renderNav() {
     const nav = document.getElementById('auth-nav');
     if (!nav) return;
     
     const isLogged = localStorage.getItem('logged') === 'true';
 
-    let menu = `
+    let html = `
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#productos">Productos</a></li>
     `;
 
     if (isLogged) {
-        menu += `
+        html += `
             <li><a href="dashboard.html" class="panel-btn">PANEL</a></li>
-            <li><a id="btn-salir" class="logout-link">SALIR</a></li>
+            <li><a id="btn-logout" class="logout-link">SALIR</a></li>
         `;
     } else {
-        menu += `
+        html += `
             <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
         `;
     }
 
-    nav.innerHTML = menu;
+    nav.innerHTML = html;
 
-    // EVENTO PARA CERRAR SESION
-    const logoutBtn = document.getElementById('btn-salir');
-    if (logoutBtn) {
-        logoutBtn.onclick = (e) => {
-            e.preventDefault();
+    const btnLogout = document.getElementById('btn-logout');
+    if (btnLogout) {
+        btnLogout.onclick = () => {
             localStorage.setItem('logged', 'false');
-            window.location.href = "index.html"; 
+            location.reload();
         };
     }
 }
 
-// CARGA DE PRODUCTOS
+// 2. Carga de Productos con Diseño Mejorado
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
         grid.innerHTML = "";
+        if (snapshot.empty) {
+            grid.innerHTML = "<p>Cargando scripts premium...</p>";
+            return;
+        }
         snapshot.forEach((doc) => {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <h3>${p.nombre}</h3>
-                    <p>${p.descripcion}</p>
-                    <span style="color:#2ecc71; font-weight:900;">$${p.precio}</span>
+                    <img src="${p.imagen || 'https://via.placeholder.com/300x180?text=Premium+Script'}" class="product-img">
+                    <div class="product-info">
+                        <h3>${p.nombre}</h3>
+                        <p>${p.descripcion || 'Script optimizado para servidores de alto rendimiento.'}</p>
+                        <div class="product-action">
+                            <span class="price">$${p.precio}</span>
+                            <button class="btn-buy">COMPRAR</button>
+                        </div>
+                    </div>
                 </div>`;
         });
     });

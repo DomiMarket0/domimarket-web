@@ -20,7 +20,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
-                <li><a href="login.html" class="btn-nav">INICIAR SESIÓN</a></li>
+                <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
             </ul>
         </div>
     </nav>
@@ -32,7 +32,7 @@
             <p class="hero-subtitle">Premium Scripts for <span class="red">MTA:SA</span></p>
             
             <div class="hero-btns">
-                <a href="#productos" class="btn-primary">EXPLORAR TIENDA</a>
+                <a href="#productos" class="btn-primary pulse-animation">EXPLORAR TIENDA</a>
                 <a href="https://discord.gg/tu-link" target="_blank" class="btn-secondary">
                     <i class="fab fa-discord"></i> DISCORD
                 </a>
@@ -42,21 +42,31 @@
 
     <section id="productos" class="products-section">
         <div class="container">
-            <h2 class="section-title">Nuestros <span class="red">Scripts</span></h2>
+            <h2 class="section-title" data-aos="fade-up">Nuestros <span class="red">Scripts</span></h2>
             <div class="products-grid" id="grid-productos">
                 </div>
         </div>
     </section>
 
-    <footer id="contacto">
+    <footer id="contacto" data-aos="fade-up">
         <div class="footer-content">
-            <p>&copy; 2025 DomiMarket - Todos los derechos reservados</p>
-            <p>Contacto: support@domimarket.com</p>
+            <h3>CONTACTO <span class="red">DIRECTO</span></h3>
+            <p>¿Tienes dudas? Únete a nuestro Discord para soporte inmediato.</p>
+            <div class="social-links">
+                <a href="https://discord.gg/tu-link"><i class="fab fa-discord"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 DomiMarket - Todos los derechos reservados</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="module" src="script.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
+    <script>
+        AOS.init({ 
+            duration: 1000, 
+            once: true,
+            offset: 120
+        });
+    </script>
 </body>
 </html>

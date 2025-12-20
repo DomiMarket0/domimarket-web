@@ -13,11 +13,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Función para cambiar el menú según la sesión
+// ESTA FUNCIÓN ES LA QUE CAMBIA EL BOTÓN
 function renderNav() {
     const nav = document.getElementById('auth-nav');
     if (!nav) return;
     
+    // Forzamos la lectura del estado
     const isLogged = localStorage.getItem('logged') === 'true';
 
     if (isLogged) {
@@ -30,8 +31,8 @@ function renderNav() {
 
         document.getElementById('logout-btn').onclick = (e) => {
             e.preventDefault();
-            localStorage.setItem('logged', 'false');
-            location.reload(); 
+            localStorage.setItem('logged', 'false'); // Sesión a falso
+            location.reload(); // Recarga para aplicar cambios
         };
     } else {
         nav.innerHTML = `
@@ -42,7 +43,7 @@ function renderNav() {
     }
 }
 
-// Carga de productos en tiempo real
+// Carga de productos
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
@@ -51,14 +52,14 @@ if (grid) {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || 'logo.png'}" class="product-img">
+                    <img src="${p.imagen || 'https://via.placeholder.com/300x200?text=No+Image'}" class="product-img">
                     <div class="product-info">
                         <h3>${p.nombre}</h3>
                         <p>${p.descripcion}</p>
                     </div>
                     <div class="product-action-bar">
                         <a href="#" class="btn-details">DETALLES</a>
-                        <div class="action-right">
+                        <div class="action-right" style="display:flex; align-items:center; gap:10px;">
                             <span class="price-tag">$${p.precio}</span>
                             <button class="btn-buy-now">COMPRAR</button>
                         </div>
@@ -68,4 +69,5 @@ if (grid) {
     });
 }
 
+// Arranca la magia
 document.addEventListener('DOMContentLoaded', renderNav);

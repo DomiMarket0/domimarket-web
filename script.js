@@ -12,58 +12,23 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-// 1. Manejo del Menú (Login/Salir)
-function renderNav() {
-    const nav = document.getElementById('auth-nav');
-    const isLogged = localStorage.getItem('logged') === 'true';
-
-    let menu = `
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="#productos">Productos</a></li>
-    `;
-
-    if (isLogged) {
-        menu += `<li><a id="btn-logout" class="logout-link">SALIR</a></li>`;
-    } else {
-        menu += `<li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>`;
-    }
-
-    nav.innerHTML = menu;
-
-    if (isLogged) {
-        document.getElementById('btn-logout').onclick = () => {
-            localStorage.setItem('logged', 'false');
-            location.reload();
-        };
-    }
-}
-
-// 2. Carga de Productos (Arregla el error de la foto 16)
 const grid = document.getElementById('grid-productos');
-if (grid) {
-    onSnapshot(collection(db, "productos"), (snapshot) => {
-        grid.innerHTML = "";
-        if (snapshot.empty) {
-            grid.innerHTML = "<p>Aún no hay scripts creados en Firebase.</p>";
-            return;
-        }
-        snapshot.forEach((doc) => {
-            const p = doc.data();
-            grid.innerHTML += `
-                <div class="product-card">
-                    <div style="height:150px; background:#1a1a1a; border-radius:8px; margin-bottom:15px; display:flex; align-items:center; justify-content:center;">
-                        <img src="${p.imagen || ''}" style="max-width:100%; max-height:100%; border-radius:8px;">
-                    </div>
-                    <h3>${p.nombre}</h3>
-                    <p style="color:#aaa; font-size:0.9rem;">${p.descripcion || 'Script premium para MTA.'}</p>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span class="price">$${p.precio}</span>
-                        <button class="btn-buy">COMPRAR</button>
-                    </div>
-                </div>`;
-        });
-    });
-}
 
-document.addEventListener('DOMContentLoaded', renderNav);
+// CARGA REAL DE FIREBASE
+onSnapshot(collection(db, "productos"), (snapshot) => {
+    grid.innerHTML = "";
+    if (snapshot.empty) {
+        grid.innerHTML = "<h3>No hay productos en la base de datos. Agrégalos desde el Panel.</h3>";
+        return;
+    }
+    snapshot.forEach((doc) => {
+        const p = doc.data();
+        grid.innerHTML += `
+            <div class="card">
+                <h3>${p.nombre}</h3>
+                <p>${p.descripcion || ''}</p>
+                <span class="price">$${p.precio}</span>
+                <button style="float:right">COMPRAR</button>
+            </div>`;
+    });
+});

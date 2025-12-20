@@ -1,10 +1,11 @@
+/* RESET Y BASE */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { background: #000; color: #fff; overflow-x: hidden; }
 
-/* NAVBAR */
+/* NAVBAR PROTEGIDA */
 .navbar {
     background: #050505;
-    height: 75px;
+    height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -17,7 +18,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 
 .nav-container {
     width: 95%;
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -25,9 +26,29 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 }
 
 .logo-box { display: flex; align-items: center; gap: 10px; }
-.mini-logo { height: 40px; width: auto; }
-.brand { font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; }
+.mini-logo { height: 45px; width: auto; }
+.brand { font-weight: 900; font-size: 1.2rem; letter-spacing: 1px; }
 .red { color: #ff0000; }
+
+/* ESTILO DE LOS LINKS (INICIO, PRODUCTOS, ETC) */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: #ff0000;
+}
 
 /* BOTÓN LOGIN */
 .login-button {
@@ -41,39 +62,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
     transition: 0.3s;
 }
 
-/* PERFIL CUANDO TE LOGUEAS */
-.user-active-btn {
-    background: #ff0000;
-    padding: 7px 15px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    border: 2px solid #fff;
-}
-
-.user-active-btn img { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #fff; }
-
-.menu-box {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 60px;
-    background: #0a0a0a;
-    min-width: 200px;
-    border: 1px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.9);
-}
-
-.menu-box a { color: #fff; padding: 12px 18px; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 14px; }
-.menu-box a:hover { background: #1a1a1a; color: #ff0000; }
-.line { height: 1px; background: #333; margin: 5px 0; }
-.exit { color: #ff4444 !important; }
-.show { display: block !important; }
-
-/* CONTENIDO CENTRAL */
+/* HERO SECTION */
 .hero-section {
     padding-top: 180px;
     text-align: center;
@@ -81,10 +70,14 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 }
 
 .main-img {
-    width: 300px;
+    width: 280px;
     height: auto;
     margin-bottom: 25px;
-    filter: drop-shadow(0 0 15px rgba(255,0,0,0.3));
 }
 
 .red-glow { color: #ff0000; text-shadow: 0 0 15px #ff0000; }
+
+/* RESPONSIVE: SI ES CELULAR, OCULTA LOS LINKS PARA QUE NO SE BUGUEE */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+}

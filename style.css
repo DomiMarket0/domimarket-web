@@ -1,6 +1,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { background: #000; color: #fff; overflow-x: hidden; }
 
+/* NAVBAR */
 .navbar {
     background: #050505;
     height: 75px;
@@ -28,6 +29,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 .brand { font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; }
 .red { color: #ff0000; }
 
+/* BOTÓN LOGIN */
 .login-button {
     background: #ff0000;
     color: #fff;
@@ -39,6 +41,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
     transition: 0.3s;
 }
 
+/* PERFIL CUANDO TE LOGUEAS */
 .user-active-btn {
     background: #ff0000;
     padding: 7px 15px;
@@ -48,7 +51,6 @@ body { background: #000; color: #fff; overflow-x: hidden; }
     gap: 10px;
     cursor: pointer;
     border: 2px solid #fff;
-    font-weight: 700;
 }
 
 .user-active-btn img { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #fff; }
@@ -71,6 +73,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
 .exit { color: #ff4444 !important; }
 .show { display: block !important; }
 
+/* CONTENIDO CENTRAL */
 .hero-section {
     padding-top: 180px;
     text-align: center;

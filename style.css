@@ -1,25 +1,33 @@
+/* Tus variables */
+:root {
+    --primary: #ff0000;
+    --bg: #050505;
+    --card-bg: #111;
+    --text: #ffffff;
+}
+
 /* Animación de impacto para productos */
-@keyframes impactIn {
-    0% { transform: scale(0.5); opacity: 0; filter: blur(10px); }
-    100% { transform: scale(1); opacity: 1; filter: blur(0); }
+@keyframes hardImpact {
+    0% { transform: scale(0.8); opacity: 0; filter: brightness(2); }
+    100% { transform: scale(1); opacity: 1; filter: brightness(1); }
 }
 
 .product-card {
-    animation: impactIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    background: var(--card-bg);
     border: 1px solid #222;
-    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    animation: hardImpact 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 .product-card:hover {
     border-color: var(--primary);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px var(--primary-glow);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+    transform: translateY(-8px);
 }
 
-/* Estilo de los botones de categoría */
-.filter-bar { display: flex; justify-content: center; gap: 15px; margin: 40px 0; }
-.cat-btn {
-    background: #111; border: 1px solid #333; color: white;
-    padding: 10px 25px; border-radius: 50px; cursor: pointer; transition: 0.3s;
+.hero-card-btn h2 {
+    margin: 5px 0;
+    font-size: 2rem;
+    color: #fff;
 }
-.cat-btn.active { background: var(--primary); box-shadow: 0 0 15px var(--primary-glow); border-color: var(--primary); }

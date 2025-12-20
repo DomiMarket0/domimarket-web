@@ -13,8 +13,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// FUNCIÓN PARA EL MENÚ DINÁMICO
-function cargarMenu() {
+// FUNCIÓN PARA EL MENÚ (Cambia según si estás logueado o no)
+function renderMenu() {
     const nav = document.getElementById('auth-nav');
     const logueado = localStorage.getItem('logged') === 'true';
 
@@ -22,46 +22,54 @@ function cargarMenu() {
         nav.innerHTML = `
             <li><a href="index.html" class="nav-item">Inicio</a></li>
             <li><a href="dashboard.html" class="nav-item panel-active">Panel</a></li>
-            <li><a href="#" id="salir" class="nav-item" style="color:red">Salir</a></li>
+            <li><a href="#" id="logout" class="nav-item" style="color:red">Salir</a></li>
         `;
-        document.getElementById('salir').onclick = () => {
+        document.getElementById('logout').onclick = () => {
             localStorage.setItem('logged', 'false');
             location.reload();
         };
     } else {
         nav.innerHTML = `
             <li><a href="index.html" class="nav-item">Inicio</a></li>
-            <li><a href="login.html" style="background:red; color:white; padding:8px 15px; border-radius:5px; text-decoration:none;">INICIAR SESIÓN</a></li>
+            <li><a href="login.html" style="background:red; color:white; padding:8px 15px; border-radius:5px; text-decoration:none; font-weight:bold;">INICIAR SESIÓN</a></li>
         `;
     }
 }
 
-// CARGA DE PRODUCTOS
+// CARGA DE PRODUCTOS (Blindada contra errores)
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
         grid.innerHTML = "";
+        
         if (snapshot.empty) {
-            grid.innerHTML = "<p style='text-align:center; width:100%; color:#444;'>No hay productos aún.</p>";
+            grid.innerHTML = `
+                <div style="grid-column: 1/-1; text-align:center; padding:100px 0;">
+                    <i class="fas fa-box-open" style="font-size:3rem; color:#222; margin-bottom:15px;"></i>
+                    <h2 style="color:#444;">No hay productos en la tienda aún</h2>
+                </div>`;
             return;
         }
+
         snapshot.forEach((doc) => {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || ''}" style="width:100%; height:180px; background:#000;">
-                    <div style="padding:20px;">
+                    <img src="${p.imagen || ''}" class="product-img">
+                    <div class="product-info">
                         <h3>${p.nombre}</h3>
                         <p>${p.descripcion}</p>
                     </div>
                     <div class="action-bar">
-                        <span>$${p.precio}</span>
+                        <span class="price">$${p.precio}</span>
                         <button class="btn-buy">COMPRAR</button>
                     </div>
-                </div>
-            `;
+                </div>`;
         });
+    }, (error) => {
+        console.error("Error Firebase:", error);
+        grid.innerHTML = "<p>Error de conexión.</p>";
     });
 }
 
-document.addEventListener('DOMContentLoaded', cargarMenu);
+document.addEventListener('DOMContentLoaded', renderMenu);

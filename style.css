@@ -1,76 +1,84 @@
-/* Contenedor de imagen con efecto */
-.product-img-container {
-    position: relative;
-    height: 200px;
+:root {
+    --primary: #ff0000;
+    --bg: #050505;
+    --card-bg: #111;
+}
+
+body { background-color: var(--bg); color: white; font-family: 'Poppins', sans-serif; margin: 0; }
+
+/* Navbar */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid #222; }
+.brand { font-size: 1.5rem; font-weight: 900; }
+.red { color: var(--primary); }
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+
+.panel-btn {
+    border: 1px solid var(--primary);
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: rgba(255,0,0,0.1);
+}
+
+/* Hero */
+.hero-section { text-align: center; padding: 100px 20px; }
+.main-title { font-size: 5rem; font-weight: 900; margin: 0; }
+.red-glow { color: var(--primary); text-shadow: 0 0 20px rgba(255,0,0,0.6); }
+
+/* Grid de Productos Profesional */
+.products-section { padding: 80px 5%; }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+
+.product-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid #222;
     overflow: hidden;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
 }
 
-.product-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-}
+.product-card:hover { border-color: var(--primary); transform: translateY(-10px); }
 
-.product-card:hover .product-img {
-    transform: scale(1.1);
-}
+.product-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #222; }
 
-/* Barra de acciones (Detalles | Comprar) */
+.product-info { padding: 25px; flex-grow: 1; }
+.product-info h3 { margin: 0; font-size: 1.4rem; letter-spacing: 1px; }
+.product-info p { color: #888; font-size: 0.9rem; margin-top: 10px; }
+
+/* BARRA DE ACCIÓN MEJORADA */
 .product-action-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 20px;
     background: #000;
     border-top: 1px solid #1a1a1a;
 }
 
-/* Lado Izquierdo: Detalles */
 .btn-details {
-    color: #888;
+    color: #666;
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 900;
-    letter-spacing: 1px;
     transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 5px;
 }
 
-.btn-details:hover {
-    color: #fff;
-}
+.btn-details:hover { color: #fff; }
 
-/* Lado Derecho: Precio y Comprar */
-.action-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.price-tag {
-    color: #2ecc71;
-    font-weight: 900;
-    font-size: 1rem;
-}
+.action-right { display: flex; align-items: center; gap: 15px; }
+.price-tag { color: #2ecc71; font-weight: 900; font-size: 1.1rem; }
 
 .btn-buy-now {
     background: var(--primary);
     color: white;
     border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 6px;
     font-weight: 900;
-    font-size: 0.8rem;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
     transition: 0.3s;
 }
 
-.btn-buy-now:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
-    filter: brightness(1.2);
-}
+.btn-buy-now:hover { filter: brightness(1.2); box-shadow: 0 0 15px rgba(255,0,0,0.4); }

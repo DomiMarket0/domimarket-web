@@ -1,9 +1,11 @@
 :root {
     --primary: #ff0000;
     --bg: #050505;
-    --card: #111111;
+    --card-bg: #111111;
+    --border: #222222;
 }
 
+/* Base Blindada */
 body {
     background-color: var(--bg) !important;
     color: white !important;
@@ -12,45 +14,56 @@ body {
     padding: 0;
 }
 
+/* Navbar Estable */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
-    background: #000;
-    border-bottom: 1px solid #222;
+    padding: 15px 8%;
+    background: #000 !important;
+    border-bottom: 1px solid var(--border);
+    min-height: 70px;
 }
 
-.brand { font-size: 1.5rem; font-weight: 900; }
+.brand { font-size: 1.6rem; font-weight: 900; letter-spacing: 1px; }
 .red { color: var(--primary); }
 
-.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
-.nav-links a { color: white; text-decoration: none; font-weight: 600; }
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: 25px; 
+    align-items: center; 
+    margin: 0; 
+    padding: 0;
+}
 
-/* Botones de acción */
+.nav-links a { 
+    color: white !important; 
+    text-decoration: none; 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+    transition: 0.3s; 
+}
+
+/* Botones con Brillo Neón */
 .btn-nav-login {
-    background: var(--primary);
+    background: var(--primary) !important;
     padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px var(--primary);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
-.logout-btn { color: #ff4444 !important; cursor: pointer; }
-
-/* Tarjetas de productos */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 40px 8%;
+.panel-btn {
+    border: 1px solid var(--primary);
+    padding: 8px 18px;
+    border-radius: 5px;
+    background: rgba(255, 0, 0, 0.1);
 }
 
-.product-card {
-    background: var(--card);
-    border: 1px solid #222;
-    border-radius: 10px;
-    overflow: hidden;
+.logout-link { 
+    color: #ff4444 !important; 
+    font-weight: 900; 
+    cursor: pointer;
 }
 
-.product-info { padding: 20px; }
-.price-tag { color: #2ecc71; font-weight: 900; font-size: 1.2rem; }
+.logout-link:hover { text-shadow: 0 0 10px #ff0000; }

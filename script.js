@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+// Tu configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyA0B6BZdwXCXnidBn2seeZL7JdPjY6mTMc",
     authDomain: "domimarket-64ed1.firebaseapp.com",
@@ -13,48 +14,43 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// CAMBIAR MENÚ SEGÚN SESIÓN
-function updateNav() {
+function renderNav() {
     const nav = document.getElementById('auth-nav');
+    if (!nav) return;
+    
+    // Verificación real de sesión
     const isLogged = localStorage.getItem('logged') === 'true';
 
+    // Siempre incluimos Inicio, Productos y Contacto para que no desaparezcan
+    let menuHTML = `
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    `;
+
     if (isLogged) {
-        nav.innerHTML = `
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="dashboard.html" style="border:1px solid red; padding:5px 10px;">PANEL</a></li>
-            <li><a id="btn-salir" class="logout-btn">SALIR</a></li>
+        menuHTML += `
+            <li><a href="dashboard.html" class="panel-btn">PANEL</a></li>
+            <li><a href="#" id="logout-btn" class="logout-link">SALIR</a></li>
         `;
-        document.getElementById('btn-salir').onclick = () => {
-            localStorage.setItem('logged', 'false');
-            location.reload();
-        };
     } else {
-        nav.innerHTML = `
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
+        menuHTML += `
             <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
         `;
     }
+
+    nav.innerHTML = menuHTML;
+
+    // Asignar evento de salida si el botón existe
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.onclick = (e) => {
+            e.preventDefault();
+            localStorage.setItem('logged', 'false');
+            location.reload(); // Recarga para actualizar el menú al instante
+        };
+    }
 }
 
-// CARGAR PRODUCTOS
-const grid = document.getElementById('grid-productos');
-if (grid) {
-    onSnapshot(collection(db, "productos"), (snapshot) => {
-        grid.innerHTML = "";
-        snapshot.forEach((doc) => {
-            const p = doc.data();
-            grid.innerHTML += `
-                <div class="product-card">
-                    <div class="product-info">
-                        <h3>${p.nombre}</h3>
-                        <p>${p.descripcion}</p>
-                        <span class="price-tag">$${p.precio}</span>
-                    </div>
-                </div>`;
-        });
-    });
-}
-
-document.addEventListener('DOMContentLoaded', updateNav);
+// Ejecutar al cargar la página
+document.addEventListener('DOMContentLoaded', renderNav);

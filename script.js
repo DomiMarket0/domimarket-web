@@ -16,19 +16,14 @@ const grid = document.getElementById('grid-productos');
 
 onSnapshot(collection(db, "productos"), (snapshot) => {
     grid.innerHTML = "";
-    if (snapshot.empty) {
-        grid.innerHTML = '<p class="subtitle">Aún no hay scripts disponibles.</p>';
-        return;
-    }
     snapshot.forEach((doc) => {
         const p = doc.data();
         grid.innerHTML += `
             <div class="product-card">
-                <img src="${p.imagen || 'https://via.placeholder.com/300x180?text=MTA+Script'}" class="product-img">
-                <h3>${p.nombre}</h3>
-                <p>${p.descripcion}</p>
-                <span class="price">$${p.precio}</span>
-                <button class="btn-buy" onclick="window.open('https://discord.gg/tu-link')">Comprar</button>
+                <h3>${p.nombre || 'Sin nombre'}</h3>
+                <p>${p.descripcion || 'Sin descripción'}</p>
+                <span class="price">$${p.precio || '0.00'}</span>
+                <button class="btn-buy">COMPRAR</button>
             </div>`;
     });
 });

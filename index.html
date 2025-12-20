@@ -12,64 +12,53 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-box">
-                <span class="brand">DOMI<span class="red">MARKET</span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
-            </ul>
-        </div>
+        <div class="brand">DOMI<span class="red">MARKET</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
+        </ul>
     </nav>
 
     <header class="hero-section">
-        <div class="hero-main" data-aos="zoom-in">
-            <h1 class="main-title">DOMI<span class="red-glow">MARKET</span></h1>
-            <div class="hero-line"></div>
-            <p class="hero-subtitle">Premium Scripts for <span class="red">MTA:SA</span></p>
-            
-            <div class="hero-btns">
-                <a href="#productos" class="hero-card-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>EXPLORAR TIENDA</span>
-                </a>
-                <a href="https://discord.gg/tu-link" target="_blank" class="hero-card-btn discord">
-                    <i class="fab fa-discord"></i>
-                    <span>DISCORD</span>
-                </a>
-                <a href="#contacto" class="hero-card-btn contact">
-                    <i class="fas fa-envelope"></i>
-                    <span>CONTACTO</span>
-                </a>
-            </div>
+        <h1 class="main-title" data-aos="zoom-in">DOMI<span class="red-glow">MARKET</span></h1>
+        <p class="hero-subtitle">Premium Scripts for MTA:SA</p>
+        
+        <div class="hero-btns" data-aos="fade-up">
+            <a href="#productos" class="hero-card-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span>TIENDA</span>
+            </a>
+            <a href="https://discord.gg/tu-link" target="_blank" class="hero-card-btn">
+                <i class="fab fa-discord"></i>
+                <span>DISCORD</span>
+            </a>
+            <a href="#contacto" class="hero-card-btn">
+                <i class="fas fa-envelope"></i>
+                <span>CONTACTO</span>
+            </a>
         </div>
     </header>
 
     <section id="productos" class="products-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Nuestros <span class="red">Scripts</span></h2>
-            <div class="products-grid" id="grid-productos">
-                </div>
-        </div>
+        <h2 class="section-title">Nuestros <span class="red">Scripts</span></h2>
+        <div class="products-grid" id="grid-productos">
+            </div>
     </section>
 
-    <footer id="contacto" data-aos="fade-up">
-        <div class="footer-card">
-            <i class="fas fa-headset red"></i>
+    <footer id="contacto">
+        <div class="footer-card" data-aos="fade-up">
+            <i class="fas fa-headset red" style="font-size: 3rem;"></i>
             <h3>¿NECESITAS AYUDA?</h3>
-            <p>Soporte técnico disponible en nuestro servidor.</p>
+            <p>Soporte técnico disponible 24/7 en Discord.</p>
             <a href="https://discord.gg/tu-link" class="btn-primary">ABRIR TICKET</a>
-            <p class="copyright">&copy; 2025 DomiMarket</p>
+            <p style="margin-top: 30px; opacity: 0.5;">&copy; 2025 DomiMarket</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="module" src="script.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+    <script>AOS.init();</script>
 </body>
 </html>

@@ -1,38 +1,76 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// Tu config de Firebase se queda igual...
+const firebaseConfig = {
+    apiKey: "AIzaSyA0B6BZdwXCXnidBn2seeZL7JdPjY6mTMc",
+    authDomain: "domimarket-64ed1.firebaseapp.com",
+    projectId: "domimarket-64ed1",
+    storageBucket: "domimarket-64ed1.firebasestorage.app",
+    messagingSenderId: "349796893686",
+    appId: "1:349796893686:web:5d6f68b245f5ed31283dd7"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 function renderNav() {
     const nav = document.getElementById('auth-nav');
     if (!nav) return;
     
-    // Detecta si el valor es exactamente la cadena 'true'
+    // Verificamos el estado real de la sesión
     const isLogged = localStorage.getItem('logged') === 'true';
 
     if (isLogged) {
-        // VISTA CON SESIÓN ACTIVA
+        // VISTA LOGUEADO
         nav.innerHTML = `
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#productos">Productos</a></li>
             <li><a href="#contacto">Contacto</a></li>
-            <li><a href="dashboard.html" class="panel-btn">PANEL</a></li>
-            <li><a href="#" id="logout-btn" style="color: #ff4444; font-weight: 900; margin-left: 10px;">
-                <i class="fas fa-sign-out-alt"></i> SALIR
-            </a></li>
+            <li><a href="dashboard.html" class="panel-btn neon-border">PANEL</a></li>
+            <li><a href="#" id="logout-btn" class="logout-link">SALIR</a></li>
         `;
 
-        // Lógica para cerrar sesión
         document.getElementById('logout-btn').onclick = (e) => {
             e.preventDefault();
-            localStorage.setItem('logged', 'false'); // Cambia el estado
-            location.reload(); // Recarga la página para aplicar cambios
+            localStorage.removeItem('logged'); // Borramos la sesión
+            location.reload(); // Recarga para volver a mostrar "Iniciar Sesión"
         };
     } else {
-        // VISTA SIN SESIÓN
+        // VISTA VISITANTE
         nav.innerHTML = `
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#productos">Productos</a></li>
             <li><a href="#contacto">Contacto</a></li>
-            <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
+            <li><a href="login.html" class="btn-nav-login neon-button">INICIAR SESIÓN</a></li>
         `;
     }
 }
 
-// Ejecución obligatoria al cargar el DOM
+// Carga de productos (Diseño Pro)
+const grid = document.getElementById('grid-productos');
+if (grid) {
+    onSnapshot(collection(db, "productos"), (snapshot) => {
+        grid.innerHTML = "";
+        snapshot.forEach((doc) => {
+            const p = doc.data();
+            grid.innerHTML += `
+                <div class="product-card" data-aos="fade-up">
+                    <img src="${p.imagen || 'logo.png'}" class="product-img">
+                    <div class="product-info">
+                        <h3>${p.nombre}</h3>
+                        <p>${p.descripcion}</p>
+                    </div>
+                    <div class="product-action-bar">
+                        <a href="#" class="btn-details">DETALLES</a>
+                        <div class="action-right">
+                            <span class="price-tag">$${p.precio}</span>
+                            <button class="btn-buy-now">COMPRAR</button>
+                        </div>
+                    </div>
+                </div>`;
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', renderNav);

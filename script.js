@@ -13,46 +13,55 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Manejo del menú
+// Manejo del menú dinámico
 function renderNav() {
     const nav = document.getElementById('auth-nav');
+    if (!nav) return; // Seguridad por si el elemento no existe
+
     const isLogged = localStorage.getItem('logged') === 'true';
 
     if (isLogged) {
         nav.innerHTML = `
-            <li><a href="index.html" class="nav-item">Inicio</a></li>
-            <li><a href="dashboard.html" class="nav-item panel-btn">PANEL</a></li>
-            <li><a href="#" id="logout" class="nav-item" style="color:red">SALIR</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="dashboard.html" class="panel-btn">PANEL</a></li>
+            <li><a href="#" id="logout" style="color: #ff4444; font-weight: bold; margin-left: 10px;">SALIR</a></li>
         `;
-        document.getElementById('logout').onclick = () => { localStorage.setItem('logged', 'false'); location.reload(); };
+        document.getElementById('logout').onclick = (e) => { 
+            e.preventDefault();
+            localStorage.setItem('logged', 'false'); 
+            location.reload(); 
+        };
     } else {
         nav.innerHTML = `
-            <li><a href="index.html" class="nav-item">Inicio</a></li>
-            <li><a href="login.html" class="nav-item" style="background:red; padding:10px 20px; border-radius:5px;">INICIAR SESIÓN</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
         `;
     }
 }
 
-// Carga de productos
+// Carga de productos desde Firebase
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
         grid.innerHTML = "";
         
-        // Si está vacío, mostramos productos "Demo" para que no se vea mal
+        // Si la base de datos está vacía, mostramos "Muestra" para mantener el diseño
         if (snapshot.empty) {
             for(let i=1; i<=3; i++) {
                 grid.innerHTML += `
-                <div class="product-card">
-                    <div style="height:200px; background:#222; display:flex; align-items:center; justify-content:center;">
-                        <i class="fas fa-image" style="font-size:3rem; color:#444;"></i>
+                <div class="product-card" data-aos="fade-up">
+                    <div style="height:200px; background:#1a1a1a; display:flex; align-items:center; justify-content:center;">
+                        <i class="fas fa-code" style="font-size:3rem; color:#333;"></i>
                     </div>
-                    <div style="padding:20px;">
-                        <h3>Producto de Muestra ${i}</h3>
-                        <p>Este es un espacio reservado para tus productos de Firebase.</p>
+                    <div class="product-info">
+                        <h3>Script de Muestra ${i}</h3>
+                        <p>Aún no hay scripts disponibles en la base de datos.</p>
                     </div>
                     <div class="action-panel">
-                        <span style="font-weight:bold; color:#2ecc71;">$0.00</span>
+                        <span class="price-tag">$0.00</span>
                         <button class="btn-buy">COMPRAR</button>
                     </div>
                 </div>`;
@@ -60,22 +69,25 @@ if (grid) {
             return;
         }
 
-        // Si hay productos reales, los cargamos
+        // Si hay productos reales en Firebase
         snapshot.forEach((doc) => {
             const p = doc.data();
             grid.innerHTML += `
-                <div class="product-card">
-                    <img src="${p.imagen || ''}" style="width:100%; height:200px; object-fit:cover;">
-                    <div style="padding:20px;">
+                <div class="product-card" data-aos="fade-up">
+                    <img src="${p.imagen || 'logo.png'}" style="width:100%; height:200px; object-fit:cover;">
+                    <div class="product-info">
                         <h3>${p.nombre}</h3>
                         <p>${p.descripcion}</p>
                     </div>
                     <div class="action-panel">
-                        <span style="font-weight:bold; color:#2ecc71;">$${p.precio}</span>
+                        <span class="price-tag">$${p.precio}</span>
                         <button class="btn-buy">COMPRAR</button>
                     </div>
                 </div>`;
         });
+    }, (error) => {
+        console.error("Error al cargar productos:", error);
+        grid.innerHTML = "<p>Error al conectar con la tienda.</p>";
     });
 }
 

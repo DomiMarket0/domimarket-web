@@ -1,72 +1,75 @@
 /* ==========================================================================
-   DOMIMARKET INFRAESTRUCTURA ROJA V10.0
+   DOMIMARKET ELITE RED SYSTEM - 100% ESPAÑOL
    ========================================================================== */
 :root {
-    --rojo-principal: #ff0000;
-    --rojo-oscuro: #8b0000;
-    --rojo-brillo: rgba(255, 0, 0, 0.7);
-    --fondo-negro: #050505;
-    --tarjetas: #121212;
-    --transicion: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --rojo: #ff0000;
+    --rojo-glow: rgba(255, 0, 0, 0.5);
+    --oscuro-total: #050505;
+    --tarjeta-bg: rgba(18, 18, 18, 0.8);
+    --borde: rgba(255, 255, 255, 0.05);
+    --fuente: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 body {
-    background-color: var(--fondo-negro);
+    background-color: var(--oscuro-total);
     color: white;
-    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--fuente);
     overflow-x: hidden;
 }
 
-/* --- ANIMACIÓN DE CARGA ROJA --- */
-.main-loader {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: #000; z-index: 9999; display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
+/* --- CARGA PROFESIONAL --- */
+.pantalla-carga {
+    position: fixed; top: 0; width: 100%; height: 100%;
+    background: #000; z-index: 10000; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; transition: 0.8s;
 }
-.loader-circle {
-    width: 70px; height: 70px; border: 3px solid rgba(255,0,0,0.1);
-    border-top: 3px solid var(--rojo-principal); border-radius: 50%;
-    animation: spin 0.8s linear infinite; box-shadow: 0 0 20px var(--rojo-brillo);
+.aro-rojo {
+    width: 60px; height: 60px; border: 4px solid rgba(255,0,0,0.1);
+    border-top: 4px solid var(--rojo); border-radius: 50%;
+    animation: rotacion 1s linear infinite; box-shadow: 0 0 20px var(--rojo-glow);
 }
+@keyframes rotacion { to { transform: rotate(360deg); } }
 
-/* --- BARRA DE NAVEGACIÓN PROFESIONAL --- */
-.nav-pro {
+/* --- BARRA DE NAVEGACIÓN --- */
+.header-pro {
     position: fixed; top: 0; width: 100%; z-index: 1000;
-    background: rgba(0,0,0,0.9); backdrop-filter: blur(15px);
-    border-bottom: 2px solid var(--rojo-principal); padding: 15px 0;
+    background: rgba(0,0,0,0.8); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--borde); padding: 15px 0;
 }
-.container { max-width: 1300px; margin: 0 auto; padding: 0 30px; }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
 .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; }
-.logo span { color: var(--rojo-principal); text-shadow: 0 0 10px var(--rojo-brillo); }
+.logo-dm { font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; }
+.logo-dm span { color: var(--rojo); text-shadow: 0 0 15px var(--rojo-glow); }
 
-/* --- SECCIÓN HERO (ENTRADA DURA) --- */
-.hero {
-    height: 100vh; display: flex; align-items: center;
-    background: radial-gradient(circle at center, rgba(255,0,0,0.1) 0%, transparent 70%);
+/* --- SECCIÓN HERO (MEJOR QUE ETVX) --- */
+.hero-v5 {
+    height: 100vh; display: flex; align-items: center; position: relative;
+    background: radial-gradient(circle at 20% 30%, rgba(255,0,0,0.08) 0%, transparent 50%);
 }
-.hero-content { opacity: 0; animation: entradaArriba 1s forwards; }
-@keyframes entradaArriba {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.hero-content { max-width: 850px; animation: entradaSuave 1.2s ease-out; }
+@keyframes entradaSuave {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
-.titulo-gigante { font-size: 5rem; line-height: 1; margin-bottom: 20px; font-weight: 900; }
-.titulo-gigante span { color: var(--rojo-principal); }
+.hero-v5 h1 { font-size: 5.5rem; line-height: 0.9; margin-bottom: 25px; font-weight: 900; }
+.hero-v5 h1 span { color: var(--rojo); text-transform: uppercase; }
 
-/* --- BOTONES EMPRESARIOS --- */
-.btn-rojo {
-    background: var(--rojo-principal); color: white; padding: 15px 40px;
-    border-radius: 5px; font-weight: 800; text-decoration: none;
-    box-shadow: 0 0 20px var(--rojo-brillo); transition: var(--transicion);
-    display: inline-block; border: none; cursor: pointer;
+/* --- BOTONES DE ÉXITO --- */
+.btn-dm {
+    background: var(--rojo); color: white; padding: 18px 45px;
+    border-radius: 6px; font-weight: 800; text-decoration: none;
+    box-shadow: 0 0 25px var(--rojo-glow); transition: 0.3s;
+    display: inline-block; border: none; cursor: pointer; text-transform: uppercase;
 }
-.btn-rojo:hover { transform: scale(1.05); background: white; color: black; box-shadow: 0 0 30px white; }
+.btn-dm:hover { transform: translateY(-5px); box-shadow: 0 15px 35px var(--rojo-glow); filter: brightness(1.2); }
 
-/* --- TARJETAS DE PRODUCTOS --- */
-.grid-scripts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; }
-.card-script {
-    background: var(--tarjetas); border: 1px solid #222; border-radius: 12px;
-    padding: 20px; transition: var(--transicion); position: relative; overflow: hidden;
+/* --- GRID DE PRODUCTOS --- */
+.marketplace { padding: 100px 0; }
+.grid-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.card-dm {
+    background: var(--tarjeta-bg); border: 1px solid var(--borde); border-radius: 15px;
+    padding: 25px; transition: 0.4s; position: relative; overflow: hidden;
 }
-.card-script:hover { border-color: var(--rojo-principal); box-shadow: 0 0 20px rgba(255,0,0,0.2); }
+.card-dm:hover { border-color: var(--rojo); transform: translateY(-10px); }
+.card-dm img { width: 100%; border-radius: 10px; margin-bottom: 20px; border: 1px solid #222; }

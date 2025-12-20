@@ -16,7 +16,7 @@ async function handleAuth() {
             
             const nav = document.getElementById('auth-nav');
             if (nav) {
-                // Mantenemos tu diseño pero ponemos el nombre y SALIR
+                // Reemplazamos el menú para poner tu nombre y el botón de SALIR
                 nav.innerHTML = `
                     <li><a href="index.html" style="color: white; text-decoration: none;">Inicio</a></li>
                     <li style="color: #5865F2; font-weight: bold;">${user.username}</li>
@@ -28,7 +28,7 @@ async function handleAuth() {
                     window.location.reload();
                 };
             }
-        } catch (err) { console.error("Error cargando perfil"); }
+        } catch (err) { console.error("Error al conectar con Discord"); }
     }
 }
 

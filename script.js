@@ -1,13 +1,30 @@
-const CLIENT_ID = '1438645485773652241';
+// CONFIGURACIÓN EMPRESARIAL DOMIMARKET
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        // Efecto de desvanecimiento profesional
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }
+});
 
+// SEGURIDAD: Si el loader falla, forzar el cierre en 3 segundos
+setTimeout(() => {
+    const loader = document.getElementById('loader');
+    if (loader && loader.style.display !== 'none') {
+        loader.style.display = 'none';
+    }
+}, 3000);
+
+// LÓGICA DE USUARIO Y REDIRECCIÓN
 async function syncUserAuth() {
     const params = new URLSearchParams(window.location.hash.slice(1));
     let token = params.get('access_token') || localStorage.getItem('domi_token');
 
     if (token) {
         localStorage.setItem('domi_token', token);
-        window.history.replaceState({}, document.title, window.location.pathname);
-
         try {
             const response = await fetch('https://discord.com/api/users/@me', {
                 headers: { Authorization: `Bearer ${token}` }
@@ -15,16 +32,11 @@ async function syncUserAuth() {
             const data = await response.json();
             
             if (data.username) {
-                // REDIRECCIÓN: Si el usuario acaba de loguear y está en el index, enviarlo al panel
-                if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/')) {
-                    if (params.get('access_token')) {
-                        window.location.href = 'panel.html';
-                        return;
-                    }
-                }
+                // Si estamos en el index y ya hay sesión, mostrar botones de Panel
                 renderLoggedUI(data.username);
             }
         } catch (error) {
+            console.error("Error de autenticación");
             localStorage.removeItem('domi_token');
         }
     }
@@ -35,12 +47,11 @@ function renderLoggedUI(username) {
     if (!authContainer) return;
 
     authContainer.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 15px; animation: fadeIn 0.8s ease;">
-            <span style="color: #5865F2; font-weight: 800; font-size: 0.9rem;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: #5865F2; font-weight: 800; font-size: 0.8rem;">
                 <i class="fab fa-discord"></i> ${username.toUpperCase()}
             </span>
             <a href="panel.html" class="btn-panel-neon">PANEL</a>
-            
             <button onclick="handleLogout()" class="btn-logout">SALIR</button>
         </div>
     `;

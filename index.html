@@ -1,58 +1,127 @@
-﻿<!DOCTYPE html>
+﻿ index.html <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Premium MTA</title>
+
+    <title>DomiMarket | Premium Store</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;800&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
+
+
+
     <nav class="navbar">
-        <div class="logo">DOMI<span>MARKET</span></div>
-        <div class="nav-right">
-            <button class="btn-top-red">Ver Recourses</button>
-            <button class="btn-top-black">Diccord</button>
-        </div>
+
+        <div class="brand">DOMI<span class="red">MARKET</span></div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Inicio</a></li>
+
+            <li><a href="#productos">Productos</a></li>
+
+            <li><a href="#contacto">Contacto</a></li>
+
+            <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
+
+        </ul>
+
     </nav>
 
-    <header class="main-header">
-        <div class="header-content reveal">
-            <h1>DOMI MARKET</h1>
-            <p>Eleva tu servidor con scripts premium y exclusivos.</p>
+
+
+    <header class="hero-section">
+
+        <h1 class="main-title" data-aos="zoom-in">DOMI<span class="red-glow">MARKET</span></h1>
+
+        <p class="hero-subtitle">Premium Scripts for MTA:SA</p>
+
+       
+
+        <div class="hero-btns" data-aos="fade-up">
+
+            <a href="#productos" class="hero-card-btn">
+
+                <i class="fas fa-shopping-cart"></i>
+
+                <span>TIENDA</span>
+
+            </a>
+
+            <a href="https://discord.gg/tu-link" target="_blank" class="hero-card-btn">
+
+                <i class="fab fa-discord"></i>
+
+                <span>DISCORD</span>
+
+            </a>
+
+            <a href="#contacto" class="hero-card-btn">
+
+                <i class="fas fa-envelope"></i>
+
+                <span>CONTACTO</span>
+
+            </a>
+
         </div>
 
-        <div class="stats-row">
-            <div class="stat-card reveal-delayed">
-                <div class="stat-icon">👥</div>
-                <h2>+389</h2>
-                <p>Clientes</p>
-            </div>
-            <div class="stat-card reveal-delayed">
-                <div class="stat-icon">📦</div>
-                <h2>+56</h2>
-                <p>Productos</p>
-            </div>
-            <div class="stat-card reveal-delayed">
-                <div class="stat-icon">🛒</div>
-                <h2>+1447</h2>
-                <p>Ventas</p>
-            </div>
-        </div>
-
-        <div class="filter-bar">
-            <button class="filter-btn active">Todos</button>
-            <button class="filter-btn">🔥 Robos</button>
-            <button class="filter-btn">⚙️ Sistemas</button>
-            <button class="filter-btn">🛡️ Seguridad</button>
-        </div>
     </header>
 
-    <section class="products-section">
-        <div id="grid-productos" class="products-grid">
+
+
+    <section id="productos" class="products-section">
+
+        <h2 class="section-title">Nuestros <span class="red">Scripts</span></h2>
+
+        <div class="products-grid" id="grid-productos">
+
             </div>
+
     </section>
 
+
+
+    <footer id="contacto">
+
+        <div class="footer-card" data-aos="fade-up">
+
+            <i class="fas fa-headset red" style="font-size: 3rem;"></i>
+
+            <h3>¿NECESITAS AYUDA?</h3>
+
+            <p>Soporte técnico disponible 24/7 en Discord.</p>
+
+            <a href="https://discord.gg/tu-link" class="btn-primary">ABRIR TICKET</a>
+
+            <p style="margin-top: 30px; opacity: 0.5;">&copy; 2025 DomiMarket</p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script type="module" src="script.js"></script>
+
+    <script>AOS.init();</script>
+
 </body>
+
 </html>

@@ -1,4 +1,5 @@
 const CLIENT_ID = '1438645485773652241';
+const REDIRECT_URI = encodeURIComponent('https://domimarket0.github.io/domimarket-web/index.html');
 
 async function handleDiscordLogin() {
     const fragment = new URLSearchParams(window.location.hash.slice(1));
@@ -16,7 +17,6 @@ async function handleDiscordLogin() {
             const user = await resp.json();
             renderNav(user);
         } catch (e) {
-            console.error("Error cargando usuario");
             renderNav({ username: 'Usuario' });
         }
     } else {
@@ -30,14 +30,13 @@ function renderNav(user) {
 
     if (user || localStorage.getItem('logged') === 'true') {
         const name = user ? user.username : 'Conectado';
-        const avatar = user ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : '';
-
+        // Usamos etiquetas limpias para evitar que se mueva el diseño del menú
         nav.innerHTML = `
             <li><a href="index.html">Inicio</a></li>
-            <li style="color:white; font-weight:bold; display:flex; align-items:center; gap:10px; background:#222; padding:5px 15px; border-radius:50px;">
-                ${user ? `<img src="${avatar}" style="width:20px; border-radius:50%">` : ''}
-                <span>${name}</span>
-                <button id="logout-btn" style="background:red; color:white; border:none; padding:5px 10px; cursor:pointer; border-radius:5px; font-weight:bold; margin-left:10px;">SALIR</button>
+            <li><a href="#productos">Productos</a></li>
+            <li style="display:inline-flex; align-items:center; gap:10px; margin-left:15px;">
+                <span style="color:#5865F2; font-weight:bold;">${name}</span>
+                <button id="logout-btn" style="background:#ff0000; color:white; border:none; padding:8px 15px; cursor:pointer; border-radius:5px; font-weight:bold; font-family:'Poppins',sans-serif;">SALIR</button>
             </li>
         `;
         document.getElementById('logout-btn').onclick = () => {

@@ -13,42 +13,43 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// FUNCION PARA EL MENU
 function renderNav() {
     const nav = document.getElementById('auth-nav');
     if (!nav) return;
     
+    // Verificamos si el usuario tiene la sesión iniciada en el navegador
     const isLogged = localStorage.getItem('logged') === 'true';
 
-    let html = `
+    let menu = `
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#productos">Productos</a></li>
     `;
 
     if (isLogged) {
-        html += `
+        menu += `
             <li><a href="dashboard.html" class="panel-btn">PANEL</a></li>
-            <li><a id="btn-logout" class="logout-link">SALIR</a></li>
+            <li><a id="btn-salir" class="logout-link">SALIR</a></li>
         `;
     } else {
-        html += `
+        menu += `
             <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
         `;
     }
 
-    nav.innerHTML = html;
+    nav.innerHTML = menu;
 
-    // Lógica para cerrar sesión
-    const btnLogout = document.getElementById('btn-logout');
-    if (btnLogout) {
-        btnLogout.onclick = () => {
-            localStorage.setItem('logged', 'false');
-            location.reload();
+    // Lógica para el botón de cerrar sesión
+    const logoutBtn = document.getElementById('btn-salir');
+    if (logoutBtn) {
+        logoutBtn.onclick = (e) => {
+            e.preventDefault();
+            localStorage.setItem('logged', 'false'); // Cambia el estado a no logueado
+            location.reload(); // Recarga la página para aplicar cambios
         };
     }
 }
 
-// CARGAR PRODUCTOS
+// Carga de productos en tiempo real desde Firestore
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {

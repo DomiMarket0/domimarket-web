@@ -12,7 +12,7 @@
     <div style="background: #111; padding: 40px; border-radius: 20px; text-align: center; width: 350px; border: 1px solid #222;">
         <i class="fab fa-discord" style="font-size: 4rem; color: #5865F2; margin-bottom: 20px;"></i>
         <h2 style="color: white; margin-bottom: 10px; font-weight: 900;">AUTORIZAR ACCESO</h2>
-        <p style="color: #888; margin-bottom: 30px; font-size: 0.9rem;">Conecta tu cuenta de Discord para acceder a los scripts premium.</p>
+        <p style="color: #888; margin-bottom: 30px; font-size: 0.9rem;">Conecta tu cuenta de Discord para acceder a DomiMarket.</p>
         
         <button id="auth-discord" style="width:100%; background: #5865F2; color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
             <i class="fab fa-discord"></i> INICIAR CON DISCORD
@@ -25,7 +25,6 @@
 
     <script>
         const CLIENT_ID = '1438645485773652241';
-        // Esta URL es la que guardamos en tu panel de Discord
         const REDIRECT_URI = encodeURIComponent('https://domimarket0.github.io/domimarket-web/index.html');
         const DISCORD_URL = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify`;
 

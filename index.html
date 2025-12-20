@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Store</title>
+    <title>DomiMarket | Premium Store</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -18,14 +19,13 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             
             <div id="auth-section">
                 <a href="login.html" id="login-btn" class="login-button">Iniciar Sesión</a>
-
                 <div id="user-profile" class="user-menu" style="display: none;">
                     <div class="user-active-btn" onclick="toggleMenu()">
                         <img src="" id="user-avatar" alt="User">
@@ -44,13 +44,69 @@
     </nav>
 
     <header class="hero-section">
-        <div class="hero-main">
+        <div class="hero-main" data-aos="zoom-in">
             <img src="logo.png" alt="Main Logo" class="main-img">
             <h1>Expertos en <span class="red-glow">MTA:SA</span></h1>
-            <p>Scripts únicos y soporte garantizado.</p>
+            <p>Scripts optimizados con la mejor calidad del mercado.</p>
+            <a href="#productos" class="btn-explore">Ver Catálogo</a>
         </div>
     </header>
 
+    <section id="productos" class="products-section">
+        <h2 data-aos="fade-up">Nuestros <span class="red">Scripts</span></h2>
+        <div class="products-grid">
+            
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-badge">Top Ventas</div>
+                <img src="logo.png" alt="Script">
+                <h3>Sistema de Concesionario</h3>
+                <p>Totalmente configurable con NUI moderna.</p>
+                <span class="price">15.00 USD</span>
+                <button class="btn-buy">Comprar Ahora</button>
+            </div>
+
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="logo.png" alt="Script">
+                <h3>Robo al Banco Premium</h3>
+                <p>Animaciones únicas y sistema de hackeo.</p>
+                <span class="price">10.00 USD</span>
+                <button class="btn-buy">Comprar Ahora</button>
+            </div>
+
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="logo.png" alt="Script">
+                <h3>HUD Personalizado</h3>
+                <p>Diseño minimalista compatible con todos los DX.</p>
+                <span class="price">5.00 USD</span>
+                <button class="btn-buy">Comprar Ahora</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <div class="contact-card" data-aos="flip-left">
+            <h2>¿Necesitas ayuda?</h2>
+            <p>Únete a nuestro Discord para soporte directo o consultas personalizadas.</p>
+            <div class="social-buttons">
+                <a href="https://discord.gg/TU_INVITACION" target="_blank" class="btn-social discord">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+                <a href="mailto:tu@correo.com" class="btn-social email">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 DOMIMARKET - Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
 </body>
 </html>

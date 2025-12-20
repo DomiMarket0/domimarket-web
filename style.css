@@ -20,14 +20,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    background: rgba(0,0,0,0.95);
+    background: #000;
     border-bottom: 1px solid #1a1a1a;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; margin: 0; }
 
 .nav-item {
     color: #fff;
@@ -38,17 +38,17 @@ body {
     transition: 0.3s;
 }
 
-.nav-item:hover { color: var(--success); }
-
-.nav-item.active {
-    color: var(--success);
+/* Estilo del botón Panel cuando el usuario está logueado */
+.nav-item.active-panel {
+    color: var(--success) !important;
     background: rgba(46, 204, 113, 0.1);
+    border: 1px solid rgba(46, 204, 113, 0.3);
     border-radius: 6px;
 }
 
 .nav-item.logout { color: #ff4444; }
 
-/* GRID DE PRODUCTOS */
+/* PRODUCTOS ESTILO PREMIUM */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -61,10 +61,13 @@ body {
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid #1a1a1a;
+    transition: 0.3s;
 }
 
+.product-card:hover { border-color: var(--primary); }
+
 .product-info { padding: 20px; }
-.product-info h3 { margin: 0; font-size: 1.1rem; }
+.product-info h3 { margin: 0; font-size: 1.1rem; text-transform: uppercase; }
 .product-info p { color: #888; font-size: 0.85rem; margin: 10px 0; }
 
 .action-panel {
@@ -76,6 +79,8 @@ body {
     border-top: 1px solid #1a1a1a;
 }
 
+.price-tag { font-weight: 900; font-size: 1.2rem; color: #fff; }
+
 .btn-buy-now {
     background: var(--success);
     color: #000;
@@ -84,30 +89,4 @@ body {
     border-radius: 5px;
     font-weight: 900;
     cursor: pointer;
-}
-
-/* DASHBOARD ESTRUCTURA */
-.dashboard-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 25px;
-    padding: 40px 5%;
-}
-
-.side-box {
-    background: var(--card-bg);
-    border: 1px solid #1a1a1a;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.input-group input {
-    width: 100%;
-    background: #000;
-    border: 1px solid #222;
-    padding: 10px;
-    color: #fff;
-    border-radius: 6px;
-    margin-top: 5px;
 }

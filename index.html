@@ -3,50 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket Premium | Enterprise Script Solutions</title>
+    <title>DomiMarket | Enterprise Software Solutions</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body class="dark-theme">
-    <div id="loader" class="loader-wrapper">
-        <div class="loader-content">
-            <div class="spinner"></div>
-            <span>DOMIMARKET</span>
-        </div>
+<body class="enterprise-tier">
+    <div id="loader" class="main-loader">
+        <div class="loader-circle"></div>
+        <span class="loader-text">DOMIMARKET</span>
     </div>
 
-    <header class="navbar-enterprise">
-        <nav class="container nav-flex">
+    <header class="header-enterprise">
+        <nav class="container nav-grid">
             <div class="brand">
-                <div class="logo-box">DM</div>
-                <span class="brand-name">DOMI<span>MARKET</span></span>
+                <div class="brand-symbol">DM</div>
+                <h1 class="brand-name">DOMI<span>MARKET</span></h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Dashboard</a></li>
-                <li><a href="#features" class="nav-link">Servicios</a></li>
-                <li><a href="#products" class="nav-link">Marketplace</a></li>
-                <li><a href="#faq" class="nav-link">Soporte</a></li>
+                <li><a href="index.html" class="nav-item active">Home</a></li>
+                <li><a href="#marketplace" class="nav-item">Marketplace</a></li>
+                <li><a href="#services" class="nav-item">Enterprise Services</a></li>
+                <li><a href="#support" class="nav-item">Support Hub</a></li>
             </ul>
-            <div class="auth-actions" id="auth-container">
-                <a href="login.html" class="btn-login-corp">
-                    <i class="fas fa-sign-in-alt"></i> ACCESO CLIENTE
-                </a>
+            <div id="auth-container" class="nav-actions">
+                <a href="login.html" class="btn-corp-access">CLIENT PORTAL</a>
             </div>
         </nav>
     </header>
 
     <main>
         <section class="hero-business">
-            <div class="hero-bg-overlay"></div>
-            <div class="container hero-grid">
-                <div class="hero-text-content">
-                    <div class="corporate-badge">MARKETPLACE VERIFICADO 2025</div>
-                    <h1>Elevamos la Calidad de tu <span>Servidor</span></h1>
-                    <p>Software de alto rendimiento diseñado para comunidades exigentes. Seguridad, optimización y soporte empresarial en cada línea de código.</p>
-                    <div class="hero-cta-group">
-                        <a href="#products" class="btn-main-red">EXPLORAR CATÁLOGO</a>
-                        <a href="#" class="btn-outline-white">SOLICITAR DEMO</a>
+            <div class="hero-background-fx"></div>
+            <div class="container hero-layout">
+                <div class="hero-text">
+                    <div class="corp-badge">TECNOLOGÍA DE VANGUARDIA 2025</div>
+                    <h1 class="hero-title">Software de Alto Rendimiento para <span>Sistemas Complejos</span></h1>
+                    <p class="hero-sub">Optimización extrema, seguridad de grado empresarial y soporte técnico 24/7 para tu servidor.</p>
+                    <div class="hero-cta">
+                        <a href="#marketplace" class="btn-main-red">EXPLORAR CATÁLOGO</a>
+                        <a href="panel.html" class="btn-outline-white">ACCESO PANEL</a>
                     </div>
                 </div>
             </div>
@@ -54,64 +49,64 @@
 
         <section class="stats-enterprise">
             <div class="container stats-flex">
-                <div class="stat-item">
-                    <span class="count">2.5k</span>
-                    <span class="label">LICENCIAS ACTIVAS</span>
+                <div class="stat-card">
+                    <span class="stat-val">+2,500</span>
+                    <span class="stat-desc">CLIENTES CORPORATIVOS</span>
                 </div>
-                <div class="stat-item">
-                    <span class="count">99%</span>
-                    <span class="label">SATISFACCIÓN</span>
+                <div class="stat-card">
+                    <span class="stat-val">99.9%</span>
+                    <span class="stat-desc">TIEMPO DE ACTIVIDAD</span>
                 </div>
-                <div class="stat-item">
-                    <span class="count">24/7</span>
-                    <span class="label">SOPORTE TÉCNICO</span>
+                <div class="stat-card">
+                    <span class="stat-val">100%</span>
+                    <span class="stat-desc">ENCRIPTACIÓN DE DATOS</span>
                 </div>
             </div>
         </section>
 
-        <section id="products" class="marketplace-section container">
+        <section id="marketplace" class="container marketplace-section">
             <div class="section-header">
-                <h2>Catálogo de <span>Soluciones</span></h2>
-                <p>Scripts optimizados con sistema de licencia integrado.</p>
+                <h2>Soluciones <span>Digitales</span></h2>
+                <p>Nuestros sistemas más avanzados con integración de licencia dinámica.</p>
             </div>
             
-            <div class="products-container">
-                <article class="product-corp-card">
-                    <div class="product-visual">
-                        <img src="https://via.placeholder.com/400x200" alt="Script">
-                        <div class="price-tag">$29.99</div>
+            <div class="product-grid-pro">
+                <article class="product-premium-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://via.placeholder.com/600x300" alt="Script Premium">
+                        <div class="card-status">ENTERPRISE EDITION</div>
                     </div>
-                    <div class="product-body">
-                        <h3>Sistema de Economía Global</h3>
-                        <p>Gestión avanzada de divisas con soporte para múltiples bancos y criptos.</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-check"></i> Optimización 0.01ms</span>
-                            <span><i class="fas fa-check"></i> Open Source</span>
-                        </div>
-                        <button class="btn-buy-now">ADQUIRIR AHORA</button>
+                    <div class="card-content">
+                        <h3>Sistema de Seguridad V5</h3>
+                        <p>Protección contra ataques, logs avanzados e integración con Discord Webhooks.</p>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-bolt"></i> Consumo 0.01ms</li>
+                            <li><i class="fas fa-shield-alt"></i> Anti-Injection Pro</li>
+                        </ul>
+                        <button class="btn-purchase">ADQUIRIR LICENCIA</button>
                     </div>
                 </article>
-                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="footer-corporate">
+    <footer class="footer-corp">
         <div class="container footer-grid">
-            <div class="footer-about">
-                <div class="logo-box">DM</div>
-                <p>Líderes en desarrollo de software para plataformas de gaming y comunidades virtuales.</p>
+            <div class="footer-info">
+                <div class="brand-symbol">DM</div>
+                <p>Líderes globales en desarrollo de herramientas para comunidades virtuales.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-legal">
                 <h4>Legal</h4>
-                <a href="#">Términos</a>
-                <a href="#">Privacidad</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
             </div>
             <div class="footer-contact">
                 <h4>Contacto</h4>
-                <p>soporte@domimarket.pro</p>
-                <div class="social-corp">
+                <p>enterprise@domimarket.pro</p>
+                <div class="social-links">
                     <i class="fab fa-discord"></i>
-                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-github"></i>
                 </div>
             </div>
         </div>

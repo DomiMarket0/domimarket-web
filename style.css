@@ -10,6 +10,7 @@ body {
     color: #fff;
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -22,32 +23,25 @@ body {
     border-bottom: 1px solid #1a1a1a;
 }
 
-.brand { font-weight: 900; font-size: 1.4rem; letter-spacing: 1px; }
+.brand { font-weight: 900; font-size: 1.4rem; }
 .red { color: var(--primary); }
 
 .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; margin: 0; }
+.nav-item { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
 
-.nav-item {
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-/* Estilo exacto del botón Panel (Verde neón) */
+/* Botón Panel (Verde como en la imagen) */
 .nav-item.active-panel {
     color: var(--success) !important;
     background: rgba(46, 204, 113, 0.1);
     padding: 8px 15px;
     border-radius: 6px;
-    border: 1px solid rgba(46, 204, 113, 0.2);
+    border: 1px solid rgba(46, 204, 113, 0.3);
 }
 
 .nav-item.logout { color: #ff4444; }
 
-/* PRODUCTOS */
-.container { padding: 40px 5%; }
+/* CONTENEDOR DE PRODUCTOS */
+.container { padding: 40px 5%; min-height: 80vh; }
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -61,10 +55,10 @@ body {
     border: 1px solid #1a1a1a;
 }
 
-.product-img { width: 100%; height: 180px; object-fit: cover; }
+.product-img { width: 100%; height: 180px; object-fit: cover; background: #000; }
 .product-info { padding: 20px; }
 .product-info h3 { margin: 0; font-size: 1.1rem; text-transform: uppercase; }
-.product-info p { color: #888; font-size: 0.85rem; margin: 10px 0; line-height: 1.4; }
+.product-info p { color: #888; font-size: 0.85rem; margin: 10px 0; }
 
 .action-bar {
     background: #000;
@@ -75,7 +69,7 @@ body {
     border-top: 1px solid #1a1a1a;
 }
 
-.price { font-weight: 900; font-size: 1.2rem; color: #fff; }
+.price { font-weight: 900; font-size: 1.2rem; }
 
 .btn-buy {
     background: var(--success);

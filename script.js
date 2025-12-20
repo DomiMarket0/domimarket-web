@@ -1,32 +1,35 @@
-// Función para mostrar/ocultar el menú del usuario (si está logueado)
-function toggleMenu() {
-    const menu = document.getElementById('dropdown-menu');
-    menu.classList.toggle('active');
-}
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Cerrar el menú si se hace clic fuera
-window.onclick = function(event) {
-    if (!event.target.closest('.user-menu')) {
-        const dropdowns = document.getElementsByClassName("menu-box");
-        for (let i = 0; i < dropdowns.length; i++) {
-            dropdowns[i].classList.remove('active');
-        }
-    }
-}
+const firebaseConfig = {
+  apiKey: "AIzaSyA0B6BZdwXCXnidBn2seeZL7JdPjY6mTMc",
+  authDomain: "domimarket-64ed1.firebaseapp.com",
+  projectId: "domimarket-64ed1",
+  storageBucket: "domimarket-64ed1.firebasestorage.app",
+  messagingSenderId: "349796893686",
+  appId: "1:349796893686:web:5d6f68b245f5ed31283dd7"
+};
 
-// Ejemplo de función para cerrar sesión
-function logout() {
-    alert("Cerrando sesión...");
-    // Aquí iría la lógica para borrar cookies/sesión
-    location.reload();
-}
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-// Desplazamiento suave adicional (opcional, ya lo hace el CSS)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+// Escuchar los productos en tiempo real
+const grid = document.querySelector('.products-grid');
+
+onSnapshot(collection(db, "productos"), (snapshot) => {
+    grid.innerHTML = ""; // Limpiar antes de cargar
+    snapshot.forEach((doc) => {
+        const p = doc.data();
+        grid.innerHTML += `
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-img-box">
+                    <img src="${p.imagen || 'logo.png'}" alt="Script">
+                </div>
+                <h3>${p.nombre}</h3>
+                <p>${p.descripcion}</p>
+                <span class="price">${p.precio}</span>
+                <button class="btn-buy">Comprar Ahora</button>
+            </div>
+        `;
     });
 });

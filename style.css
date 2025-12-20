@@ -11,7 +11,6 @@ body {
     margin: 0;
 }
 
-/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -24,10 +23,10 @@ body {
 .brand { font-weight: 900; font-size: 1.4rem; }
 .red { color: var(--primary); }
 
-.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
-.nav-item { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; margin: 0; }
+.nav-item { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
 
-/* El botón de Panel único */
+/* Estilo para el botón de Panel cuando el usuario entra */
 .nav-item.panel-btn {
     color: #fff !important;
     background: rgba(255, 0, 0, 0.1);
@@ -36,7 +35,6 @@ body {
     border-radius: 4px;
 }
 
-/* TUS TARJETAS ORIGINALES */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -49,13 +47,15 @@ body {
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #222;
+    transition: 0.3s;
 }
+
+.product-card:hover { border-color: var(--primary); }
 
 .product-info { padding: 20px; }
 .product-info h3 { margin: 0; font-size: 1.2rem; }
 .product-info p { color: #888; font-size: 0.9rem; margin: 10px 0; }
 
-/* Panel de botones inferior que tanto te gustaba */
 .action-panel {
     display: flex;
     justify-content: space-between;

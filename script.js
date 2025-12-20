@@ -13,18 +13,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// CARGAR MENÚ SEGÚN SESIÓN
-function actualizarNavegacion() {
+function actualizarMenu() {
     const nav = document.getElementById('auth-nav');
-    const isLogged = localStorage.getItem('logged') === 'true';
+    if (!nav) return;
 
-    if (isLogged) {
+    const isLoggedIn = localStorage.getItem('logged') === 'true';
+
+    if (isLoggedIn) {
         nav.innerHTML = `
             <li><a href="index.html" class="nav-item">Inicio</a></li>
             <li><a href="dashboard.html" class="nav-item panel-btn">Panel</a></li>
-            <li><a href="#" id="btn-salir" class="nav-item" style="color:red">Salir</a></li>
+            <li><a href="#" id="logout-btn" class="nav-item" style="color:red">Salir</a></li>
         `;
-        document.getElementById('btn-salir').onclick = () => {
+        document.getElementById('logout-btn').onclick = (e) => {
+            e.preventDefault();
             localStorage.setItem('logged', 'false');
             location.reload();
         };
@@ -36,12 +38,11 @@ function actualizarNavegacion() {
     }
 }
 
-// CARGAR PRODUCTOS
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
         if (snapshot.empty) {
-            grid.innerHTML = "<p style='color:#444; text-align:center; width:100%; margin-top:50px;'>No hay productos publicados.</p>";
+            grid.innerHTML = "<p style='color:#444; text-align:center; width:100%; margin-top:50px;'>No hay productos aún.</p>";
             return;
         }
         grid.innerHTML = "";
@@ -49,7 +50,7 @@ if (grid) {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || 'logo.png'}" style="width:100%; height:180px; object-fit:cover;">
+                    <img src="${p.imagen || 'https://via.placeholder.com/300x180'}" style="width:100%; height:180px; object-fit:cover;">
                     <div class="product-info">
                         <h3>${p.nombre}</h3>
                         <p>${p.descripcion}</p>
@@ -64,4 +65,4 @@ if (grid) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', actualizarNavegacion);
+document.addEventListener('DOMContentLoaded', actualizarMenu);

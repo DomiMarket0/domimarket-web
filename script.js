@@ -13,65 +13,53 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// 1. Control del Menú y Botón Salir
-function renderNav() {
+// Manejo del Menú Dinámico
+function updateNavbar() {
     const nav = document.getElementById('auth-nav');
-    if (!nav) return;
-    
     const isLogged = localStorage.getItem('logged') === 'true';
 
-    let html = `
+    let menuContent = `
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#productos">Productos</a></li>
     `;
 
     if (isLogged) {
-        html += `
-            <li><a href="dashboard.html" class="panel-btn">PANEL</a></li>
-            <li><a id="btn-logout" class="logout-link">SALIR</a></li>
-        `;
+        menuContent += `<li><a id="logout-btn" class="logout-link">SALIR</a></li>`;
     } else {
-        html += `
-            <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
-        `;
+        menuContent += `<li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>`;
     }
 
-    nav.innerHTML = html;
+    nav.innerHTML = menuContent;
 
-    const btnLogout = document.getElementById('btn-logout');
-    if (btnLogout) {
-        btnLogout.onclick = () => {
+    if (isLogged) {
+        document.getElementById('logout-btn').onclick = () => {
             localStorage.setItem('logged', 'false');
             location.reload();
         };
     }
 }
 
-// 2. Carga de Productos con Diseño Mejorado
+// Carga de Scripts Premium
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
         grid.innerHTML = "";
-        if (snapshot.empty) {
-            grid.innerHTML = "<p>Cargando scripts premium...</p>";
-            return;
-        }
         snapshot.forEach((doc) => {
-            const p = doc.data();
+            const data = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || 'https://via.placeholder.com/300x180?text=Premium+Script'}" class="product-img">
-                    <div class="product-info">
-                        <h3>${p.nombre}</h3>
-                        <p>${p.descripcion || 'Script optimizado para servidores de alto rendimiento.'}</p>
-                        <div class="product-action">
-                            <span class="price">$${p.precio}</span>
-                            <button class="btn-buy">COMPRAR</button>
-                        </div>
+                    <div class="product-img-placeholder">
+                        ${data.imagen ? `<img src="${data.imagen}" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">` : '</>'}
+                    </div>
+                    <h3>${data.nombre}</h3>
+                    <p>${data.descripcion || 'Sin descripción disponible.'}</p>
+                    <div class="product-footer">
+                        <span class="price">$${data.precio}</span>
+                        <button class="btn-buy">COMPRAR</button>
                     </div>
                 </div>`;
         });
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderNav);
+document.addEventListener('DOMContentLoaded', updateNavbar);

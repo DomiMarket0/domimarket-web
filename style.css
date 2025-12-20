@@ -1,31 +1,62 @@
+:root {
+    --primary: #ff0000;
+    --bg: #050505;
+    --card: #111111;
+}
+
 body {
-    background-color: #050505 !important;
+    background-color: var(--bg) !important;
     color: white !important;
-    margin: 0;
     font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 8%;
+    padding: 20px 8%;
     background: #000;
     border-bottom: 1px solid #222;
 }
 
+.brand { font-size: 1.5rem; font-weight: 900; }
+.red { color: var(--primary); }
+
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+.nav-links a { color: white; text-decoration: none; font-weight: 600; }
+
+/* Estilos de botones dinámicos */
 .btn-nav-login {
-    background: #ff0000 !important;
+    background: var(--primary);
     padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px #ff0000;
-    text-decoration: none;
-    font-weight: bold;
+    box-shadow: 0 0 10px var(--primary);
 }
 
 .panel-btn {
-    border: 1px solid #ff0000;
+    border: 1px solid var(--primary);
     padding: 8px 15px;
     border-radius: 5px;
-    text-decoration: none;
+}
+
+.logout-link {
+    color: #ff4444 !important;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+/* Grid de Productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px 8%;
+}
+
+.product-card {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #222;
 }

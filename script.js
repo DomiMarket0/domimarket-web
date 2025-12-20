@@ -13,45 +13,42 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// FUNCION PARA EL MENU
 function renderNav() {
     const nav = document.getElementById('auth-nav');
     if (!nav) return;
     
-    // Verificamos si hay sesión activa
     const isLogged = localStorage.getItem('logged') === 'true';
 
-    // Construimos el menú manteniendo siempre Inicio, Productos y Contacto
-    let menuItems = `
+    let html = `
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#productos">Productos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
     `;
 
     if (isLogged) {
-        menuItems += `
+        html += `
             <li><a href="dashboard.html" class="panel-btn">PANEL</a></li>
-            <li><a href="#" id="logout-btn" style="color: #ff0000; font-weight: 900;">SALIR</a></li>
+            <li><a id="btn-logout" class="logout-link">SALIR</a></li>
         `;
     } else {
-        menuItems += `
+        html += `
             <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
         `;
     }
 
-    nav.innerHTML = menuItems;
+    nav.innerHTML = html;
 
-    // Acción para el botón de Salir
-    const btnSalir = document.getElementById('logout-btn');
-    if (btnSalir) {
-        btnSalir.onclick = (e) => {
-            e.preventDefault();
-            localStorage.setItem('logged', 'false'); // Quitamos el permiso
-            location.reload(); // Recarga la página para mostrar el menú de visitante
+    // Lógica para cerrar sesión
+    const btnLogout = document.getElementById('btn-logout');
+    if (btnLogout) {
+        btnLogout.onclick = () => {
+            localStorage.setItem('logged', 'false');
+            location.reload();
         };
     }
 }
 
-// Carga de productos desde Firebase
+// CARGAR PRODUCTOS
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
@@ -60,15 +57,9 @@ if (grid) {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || 'logo.png'}" class="product-img">
-                    <div class="product-info">
-                        <h3>${p.nombre}</h3>
-                        <p>${p.descripcion}</p>
-                    </div>
-                    <div class="product-action-bar">
-                        <span class="price-tag">$${p.precio}</span>
-                        <button class="btn-buy-now">COMPRAR</button>
-                    </div>
+                    <h3>${p.nombre}</h3>
+                    <p>${p.descripcion}</p>
+                    <span style="color:#2ecc71; font-weight:900;">$${p.precio}</span>
                 </div>`;
         });
     });

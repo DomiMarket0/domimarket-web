@@ -13,11 +13,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// MANEJO DE MENÚ (Para que no se quede el botón de Login)
-function actualizarMenu() {
+// 1. MANEJO DEL MENÚ DINÁMICO
+function renderMenu() {
     const nav = document.getElementById('auth-nav');
-    if (!nav) return;
-    
+    if(!nav) return;
+
     const isLoggedIn = localStorage.getItem('logged') === 'true';
 
     if (isLoggedIn) {
@@ -29,17 +29,17 @@ function actualizarMenu() {
         
         document.getElementById('logout-btn').addEventListener('click', () => {
             localStorage.removeItem('logged');
-            location.href = 'index.html';
+            location.reload();
         });
     } else {
         nav.innerHTML = `
             <li><a href="index.html" class="nav-item">Inicio</a></li>
-            <li><a href="login.html" style="background:red; color:white; padding:8px 15px; border-radius:5px; text-decoration:none; font-weight:bold;">INICIAR SESIÓN</a></li>
+            <li><a href="login.html" style="background:red; color:white; padding:8px 18px; border-radius:5px; text-decoration:none; font-weight:bold;">INICIAR SESIÓN</a></li>
         `;
     }
 }
 
-// CARGA DE PRODUCTOS (Con protección contra errores)
+// 2. CARGA DE PRODUCTOS
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
@@ -48,21 +48,19 @@ if (grid) {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || 'https://via.placeholder.com/300x180'}" class="product-img">
+                    <img src="${p.imagen || 'logo.png'}" class="product-img">
                     <div class="product-info">
                         <h3>${p.nombre}</h3>
                         <p>${p.descripcion}</p>
-                        <div class="price-box">
-                            <span class="price">$${p.precio}</span>
-                            <button class="btn-buy">COMPRAR</button>
-                        </div>
+                    </div>
+                    <div class="action-bar">
+                        <span class="price">$${p.precio}</span>
+                        <button class="btn-buy">COMPRAR</button>
                     </div>
                 </div>
             `;
         });
-    }, (error) => {
-        console.error("Error cargando productos:", error);
     });
 }
 
-document.addEventListener('DOMContentLoaded', actualizarMenu);
+document.addEventListener('DOMContentLoaded', renderMenu);

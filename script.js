@@ -14,21 +14,23 @@ async function handleAuth() {
             });
             const user = await response.json();
             
-            const nav = document.getElementById('auth-nav');
-            if (nav) {
-                // Reemplazamos el menú para poner tu nombre y el botón de SALIR
-                nav.innerHTML = `
-                    <li><a href="index.html" style="color: white; text-decoration: none;">Inicio</a></li>
-                    <li style="color: #5865F2; font-weight: bold;">${user.username}</li>
-                    <li><a href="#" id="logout-btn" class="btn-red">SALIR</a></li>
+            // Si el usuario está logueado, cambiamos el botón
+            const authSection = document.getElementById('auth-button');
+            if (authSection) {
+                authSection.innerHTML = `
+                    <span style="color: #5865F2; font-weight: bold; margin-right: 15px;">${user.username}</span>
+                    <a href="#" id="logout-btn" class="btn-auth" style="background: #ff0000;">SALIR</a>
                 `;
                 
-                document.getElementById('logout-btn').onclick = () => {
+                document.getElementById('logout-btn').onclick = (e) => {
+                    e.preventDefault();
                     localStorage.clear();
-                    window.location.reload();
+                    window.location.href = 'index.html';
                 };
             }
-        } catch (err) { console.error("Error al conectar con Discord"); }
+        } catch (err) {
+            localStorage.removeItem('discord_token');
+        }
     }
 }
 

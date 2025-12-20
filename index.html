@@ -2,24 +2,33 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>DomiMarket | Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomiMarket | Home</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Blindaje contra el bug de pantalla blanca */
-        body { background-color: #000 !important; color: white; margin: 0; font-family: sans-serif; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; border-bottom: 1px solid red; }
-        .btn-red { background: red; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+        /* ESTILO DE EMERGENCIA (Para evitar el bug blanco) */
+        body { background-color: #000 !important; color: white !important; margin: 0; font-family: sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; border-bottom: 2px solid #ff0000; }
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; }
+        .btn-auth { background: #ff0000; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 0 15px rgba(255,0,0,0.6); }
     </style>
 </head>
 <body>
     <header class="navbar">
-        <div style="font-weight: bold; font-size: 1.2rem;">DOMIMARKET</div>
-        <ul id="auth-nav" style="list-style: none; display: flex; gap: 20px; align-items: center; margin: 0;">
+        <div class="logo">DOMIMARKET</div>
+        <ul id="auth-nav" style="list-style: none; display: flex; gap: 30px; align-items: center; margin: 0;">
             <li><a href="index.html" style="color: white; text-decoration: none;">Inicio</a></li>
             <li><a href="#productos" style="color: white; text-decoration: none;">Productos</a></li>
-            <li><a href="login.html" class="btn-red">INICIAR SESIÓN</a></li>
+            <li id="auth-button">
+                <a href="login.html" class="btn-auth">INICIAR SESIÓN</a>
+            </li>
         </ul>
     </header>
+
+    <main style="text-align: center; padding: 100px 20px;">
+        <h1 style="font-size: 3.5rem; margin-bottom: 10px;">BIENVENIDO A DOMIMARKET</h1>
+        <p style="color: #888;">Los mejores scripts premium en un solo lugar.</p>
+    </main>
 
     <script src="script.js"></script>
 </body>

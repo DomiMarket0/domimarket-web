@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Premium Scripts</title>
+    <title>DomiMarket | MTA Scripts</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-wrapper">
-        <nav class="navbar">
-            <div class="logo">DOMIMARKET</div>
-            <a href="#" class="discord-tag">Discord Store</a>
-        </nav>
+    <nav class="navbar">
+        <div class="logo">DOMIMARKET</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#grid-productos">Productos</a></li>
+            <li><a href="https://discord.gg/tu-link" target="_blank">Contacto</a></li>
+        </ul>
+        <a href="https://discord.gg/tu-link" class="btn-discord">Discord</a>
+    </nav>
 
-        <header class="page-header">
-            <h1>NUESTROS SCRIPTS</h1>
-            <p>Scripts exclusivos para tu servidor de MTA</p>
-        </header>
+    <header class="hero">
+        <h1>NUESTROS SCRIPTS</h1>
+        <p>Scripts exclusivos y optimizados para tu servidor de MTA</p>
+    </header>
 
-        <section class="shop-container">
-            <div id="grid-productos" class="products-grid">
-                </div>
-        </section>
-    </div>
+    <main class="container">
+        <div id="grid-productos" class="products-grid">
+            </div>
+    </main>
+
     <script type="module" src="script.js"></script>
 </body>
 </html>

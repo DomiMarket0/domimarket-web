@@ -3,32 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Home</title>
+    <title>DomiMarket | Script Marketplace Premium</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* ESTILO DE EMERGENCIA (Para evitar el bug blanco) */
-        body { background-color: #000 !important; color: white !important; margin: 0; font-family: sans-serif; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; border-bottom: 2px solid #ff0000; }
-        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; }
-        .btn-auth { background: #ff0000; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 0 15px rgba(255,0,0,0.6); }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">DOMIMARKET</div>
-        <ul id="auth-nav" style="list-style: none; display: flex; gap: 30px; align-items: center; margin: 0;">
-            <li><a href="index.html" style="color: white; text-decoration: none;">Inicio</a></li>
-            <li><a href="#productos" style="color: white; text-decoration: none;">Productos</a></li>
-            <li id="auth-button">
-                <a href="login.html" class="btn-auth">INICIAR SESIÓN</a>
-            </li>
-        </ul>
+    <div class="bg-glow"></div>
+
+    <header class="main-header">
+        <nav class="container navbar">
+            <div class="logo">DOMI<span>MARKET</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div id="auth-container">
+                <a href="login.html" class="btn-primary">INICIAR SESIÓN</a>
+            </div>
+        </nav>
     </header>
 
-    <main style="text-align: center; padding: 100px 20px;">
-        <h1 style="font-size: 3.5rem; margin-bottom: 10px;">BIENVENIDO A DOMIMARKET</h1>
-        <p style="color: #888;">Los mejores scripts premium en un solo lugar.</p>
+    <main>
+        <section class="hero container">
+            <div class="hero-content animate-up">
+                <span class="badge">NUEVOS SCRIPTS 2025</span>
+                <h1>Domina el Servidor con <span>DomiMarket</span></h1>
+                <p>Scripts optimizados, soporte 24/7 y la mejor comunidad de desarrolladores en un solo lugar.</p>
+                <div class="hero-btns">
+                    <a href="#productos" class="btn-primary">Explorar Tienda</a>
+                    <a href="https://discord.gg/tu-link" class="btn-secondary"><i class="fab fa-discord"></i> Discord</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats container">
+            <div class="stat-card">
+                <h3>+1,500</h3>
+                <p>Clientes Felices</p>
+            </div>
+            <div class="stat-card">
+                <h3>+200</h3>
+                <p>Scripts Premium</p>
+            </div>
+            <div class="stat-card">
+                <h3>99.9%</h3>
+                <p>Uptime Garantizado</p>
+            </div>
+        </section>
+
+        <section id="productos" class="products container">
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img"></div>
+                    <div class="product-info">
+                        <h4>Admin System Pro</h4>
+                        <p>El sistema de administración más completo para tu servidor.</p>
+                        <span class="price">$19.99</span>
+                        <button class="btn-buy">Comprar Ahora</button>
+                    </div>
+                </div>
+                </div>
+        </section>
     </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">DOMIMARKET</div>
+            <p>&copy; 2025 DomiMarket. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

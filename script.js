@@ -1,65 +1,47 @@
-// CONFIGURACIÓN EMPRESARIAL DOMIMARKET
+// --- SISTEMA DE CARGA Y SEGURIDAD ---
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     if (loader) {
-        // Efecto de desvanecimiento profesional
         loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500);
+        setTimeout(() => loader.style.display = 'none', 600);
     }
 });
 
-// SEGURIDAD: Si el loader falla, forzar el cierre en 3 segundos
-setTimeout(() => {
-    const loader = document.getElementById('loader');
-    if (loader && loader.style.display !== 'none') {
-        loader.style.display = 'none';
-    }
-}, 3000);
-
-// LÓGICA DE USUARIO Y REDIRECCIÓN
-async function syncUserAuth() {
+// --- AUTENTICACIÓN EMPRESARIAL ---
+async function checkAuth() {
     const params = new URLSearchParams(window.location.hash.slice(1));
     let token = params.get('access_token') || localStorage.getItem('domi_token');
 
     if (token) {
         localStorage.setItem('domi_token', token);
         try {
-            const response = await fetch('https://discord.com/api/users/@me', {
+            const resp = await fetch('https://discord.com/api/users/@me', {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            const data = await response.json();
-            
-            if (data.username) {
-                // Si estamos en el index y ya hay sesión, mostrar botones de Panel
-                renderLoggedUI(data.username);
+            const user = await resp.json();
+            if (user.username) {
+                // Si el usuario acaba de entrar, enviarlo al Panel
+                if (window.location.pathname.includes('index.html') && params.get('access_token')) {
+                    window.location.href = 'panel.html';
+                }
+                updateUI(user.username);
             }
-        } catch (error) {
-            console.error("Error de autenticación");
-            localStorage.removeItem('domi_token');
-        }
+        } catch (e) { localStorage.removeItem('domi_token'); }
     }
 }
 
-function renderLoggedUI(username) {
-    const authContainer = document.getElementById('auth-container');
-    if (!authContainer) return;
-
-    authContainer.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <span style="color: #5865F2; font-weight: 800; font-size: 0.8rem;">
-                <i class="fab fa-discord"></i> ${username.toUpperCase()}
-            </span>
-            <a href="panel.html" class="btn-panel-neon">PANEL</a>
-            <button onclick="handleLogout()" class="btn-logout">SALIR</button>
-        </div>
-    `;
+function updateUI(name) {
+    const container = document.getElementById('auth-container');
+    if (container) {
+        container.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span class="accent-neon"><i class="fab fa-discord"></i> ${name.toUpperCase()}</span>
+                <a href="panel.html" class="btn-main" style="background:var(--accent); color:#000;">PANEL</a>
+                <button onclick="logout()" style="background:none; border:none; color:red; cursor:pointer; font-weight:800;">SALIR</button>
+            </div>
+        `;
+    }
 }
 
-function handleLogout() {
-    localStorage.removeItem('domi_token');
-    window.location.href = 'index.html';
-}
-
-document.addEventListener('DOMContentLoaded', syncUserAuth);
+function logout() { localStorage.removeItem('domi_token'); window.location.href = 'index.html'; }
+document.addEventListener('DOMContentLoaded', checkAuth);

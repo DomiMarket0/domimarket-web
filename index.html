@@ -3,60 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Premium Store</title>
+    <title>DomiMarket | Premium MTA</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">DOMI<span>MARKET</span></div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-        <div class="nav-auth">
-            <button class="btn-resourse">Ver Recourses</button>
-            <button class="btn-discord">Diccord</button>
+        <div class="nav-right">
+            <button class="btn-top-red">Ver Recourses</button>
+            <button class="btn-top-black">Diccord</button>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-text">
+    <header class="main-header">
+        <div class="header-content reveal">
             <h1>DOMI MARKET</h1>
             <p>Eleva tu servidor con scripts premium y exclusivos.</p>
         </div>
 
-        <div class="stats-grid">
-            <div class="stat-box">
-                <span class="icon">👥</span>
+        <div class="stats-row">
+            <div class="stat-card reveal-delayed">
+                <div class="stat-icon">👥</div>
                 <h2>+389</h2>
-                <p>CLIENTES</p>
+                <p>Clientes</p>
             </div>
-            <div class="stat-box">
-                <span class="icon">📦</span>
+            <div class="stat-card reveal-delayed">
+                <div class="stat-icon">📦</div>
                 <h2>+56</h2>
-                <p>PRODUCTOS</p>
+                <p>Productos</p>
             </div>
-            <div class="stat-box">
-                <span class="icon">🛒</span>
+            <div class="stat-card reveal-delayed">
+                <div class="stat-icon">🛒</div>
                 <h2>+1447</h2>
-                <p>VENTAS</p>
+                <p>Ventas</p>
             </div>
         </div>
 
-        <div class="categories-container">
-            <button class="cat-btn active">Todos</button>
-            <button class="cat-btn">🔥 Robos</button>
-            <button class="cat-btn">⚙️ Sistemas</button>
-            <button class="cat-btn">🛡️ Seguridad</button>
+        <div class="filter-bar">
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">🔥 Robos</button>
+            <button class="filter-btn">⚙️ Sistemas</button>
+            <button class="filter-btn">🛡️ Seguridad</button>
         </div>
     </header>
 
-    <main class="container" id="productos">
+    <section class="products-section">
         <div id="grid-productos" class="products-grid">
             </div>
-    </main>
+    </section>
 
     <script type="module" src="script.js"></script>
 </body>

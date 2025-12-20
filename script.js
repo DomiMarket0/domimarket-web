@@ -28,7 +28,8 @@ function renderNav() {
     } else {
         nav.innerHTML = `
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="login.html" style="background:red; padding:10px 20px; border-radius:5px; font-weight:bold;">INICIAR SESIÓN</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
         `;
     }
 }
@@ -39,13 +40,16 @@ if (grid) {
         grid.innerHTML = "";
         
         if (snapshot.empty) {
+            // Muestras profesionales si no hay datos
             for(let i=1; i<=3; i++) {
                 grid.innerHTML += `
                 <div class="product-card" data-aos="fade-up">
-                    <div style="height:200px; background:#1a1a1a;"></div>
+                    <div style="height:200px; background:#1a1a1a; display:flex; align-items:center; justify-content:center;">
+                        <i class="fas fa-box-open" style="font-size:3rem; color:#222;"></i>
+                    </div>
                     <div class="product-info">
-                        <h3>Script Demo ${i}</h3>
-                        <p>Descripción profesional de un script premium para tu servidor.</p>
+                        <h3>Script Premium #${i}</h3>
+                        <p>Este es un espacio reservado para tus scripts. Se cargará automáticamente desde tu base de datos Firebase.</p>
                     </div>
                     <div class="product-action-bar">
                         <a href="#" class="btn-details">DETALLES</a>

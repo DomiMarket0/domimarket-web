@@ -1,127 +1,70 @@
-﻿ index.html <!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>DomiMarket | Premium Store</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
-
-
     <nav class="navbar">
-
         <div class="brand">DOMI<span class="red">MARKET</span></div>
-
-        <ul class="nav-links">
-
-            <li><a href="index.html">Inicio</a></li>
-
-            <li><a href="#productos">Productos</a></li>
-
-            <li><a href="#contacto">Contacto</a></li>
-
-            <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
-
-        </ul>
-
+        <ul class="nav-links" id="auth-nav">
+            </ul>
     </nav>
 
-
-
     <header class="hero-section">
-
         <h1 class="main-title" data-aos="zoom-in">DOMI<span class="red-glow">MARKET</span></h1>
-
         <p class="hero-subtitle">Premium Scripts for MTA:SA</p>
-
-       
-
+        
         <div class="hero-btns" data-aos="fade-up">
-
-            <a href="#productos" class="hero-card-btn">
-
+            <div class="hero-card-btn">
+                <i class="fas fa-users"></i>
+                <h2>+389</h2>
+                <span>CLIENTES</span>
+            </div>
+            <div class="hero-card-btn">
+                <i class="fas fa-box"></i>
+                <h2>+56</h2>
+                <span>PRODUCTOS</span>
+            </div>
+            <div class="hero-card-btn">
                 <i class="fas fa-shopping-cart"></i>
-
-                <span>TIENDA</span>
-
-            </a>
-
-            <a href="https://discord.gg/tu-link" target="_blank" class="hero-card-btn">
-
-                <i class="fab fa-discord"></i>
-
-                <span>DISCORD</span>
-
-            </a>
-
-            <a href="#contacto" class="hero-card-btn">
-
-                <i class="fas fa-envelope"></i>
-
-                <span>CONTACTO</span>
-
-            </a>
-
+                <h2>+1447</h2>
+                <span>VENTAS</span>
+            </div>
         </div>
 
+        <div class="filter-bar" data-aos="fade-up">
+            <button class="cat-btn active">Todos</button>
+            <button class="cat-btn">🔥 Robos</button>
+            <button class="cat-btn">⚙️ Sistemas</button>
+            <button class="cat-btn">🛡️ Seguridad</button>
+        </div>
     </header>
 
-
-
     <section id="productos" class="products-section">
-
         <h2 class="section-title">Nuestros <span class="red">Scripts</span></h2>
-
         <div class="products-grid" id="grid-productos">
-
             </div>
-
     </section>
 
-
-
     <footer id="contacto">
-
         <div class="footer-card" data-aos="fade-up">
-
             <i class="fas fa-headset red" style="font-size: 3rem;"></i>
-
             <h3>¿NECESITAS AYUDA?</h3>
-
             <p>Soporte técnico disponible 24/7 en Discord.</p>
-
             <a href="https://discord.gg/tu-link" class="btn-primary">ABRIR TICKET</a>
-
             <p style="margin-top: 30px; opacity: 0.5;">&copy; 2025 DomiMarket</p>
-
         </div>
-
     </footer>
 
-
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script type="module" src="script.js"></script>
-
-    <script>AOS.init();</script>
-
+    <script>AOS.init({ duration: 400, once: true });</script>
 </body>
-
 </html>

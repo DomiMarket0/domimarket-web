@@ -1,72 +1,95 @@
-/* --- Estilos Globales --- */
-html { scroll-behavior: smooth; }
+/* --- Reset y Variables --- */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-body { background: #000; color: #fff; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
+body { background-color: #000; color: #fff; overflow-x: hidden; }
 
-/* --- Navbar Mejorada --- */
+.red { color: #ff0000; }
+
+/* --- Navbar --- */
 .navbar {
-    background: rgba(5, 5, 5, 0.95);
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
     height: 80px;
     width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ff0000;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #ff0000;
-    position: fixed;
-    top: 0; z-index: 10000;
 }
-.nav-container { width: 90%; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-.mini-logo { height: 45px; transition: 0.3s; }
-.mini-logo:hover { transform: rotate(10deg); }
-.brand { font-weight: 800; font-size: 1.4rem; color: #fff; }
-.red { color: #ff0000; }
+.nav-container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo-box { display: flex; align-items: center; gap: 10px; }
+.mini-logo { height: 40px; }
+.brand { font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; }
 
 .nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { text-decoration: none; color: #bbb; font-weight: 600; font-size: 14px; transition: 0.3s; }
-.nav-links a:hover { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+.nav-links a { text-decoration: none; color: #ccc; font-weight: 600; transition: 0.3s; font-size: 0.9rem; text-transform: uppercase; }
+.nav-links a:hover { color: #ff0000; }
 
-.login-button { background: #ff0000; color: #fff; padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s; border: none; cursor: pointer; }
-.login-button:hover { box-shadow: 0 0 20px #ff0000; transform: translateY(-2px); }
+.login-button { background: #ff0000; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+.login-button:hover { box-shadow: 0 0 15px #ff0000; transform: translateY(-2px); }
 
 /* --- Hero Section --- */
-.hero-section { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-.main-img { width: 280px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(255,0,0,0.4)); }
-.hero-main h1 { font-size: 3.5rem; font-weight: 800; }
-.red-glow { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
-.btn-explore { display: inline-block; margin-top: 25px; padding: 15px 40px; background: transparent; border: 2px solid #ff0000; color: #fff; text-decoration: none; font-weight: 700; border-radius: 50px; transition: 0.3s; }
-.btn-explore:hover { background: #ff0000; box-shadow: 0 0 30px #ff0000; }
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle, #1a0000 0%, #000 100%);
+}
+.main-title { font-size: 5rem; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 5px; }
+.red-glow { color: #ff0000; text-shadow: 0 0 30px rgba(255,0,0,0.6); }
+.hero-line { width: 150px; height: 4px; background: #ff0000; margin: 15px auto; border-radius: 10px; box-shadow: 0 0 15px #ff0000; }
+.hero-subtitle { font-size: 1.2rem; color: #888; margin-bottom: 30px; }
 
-/* --- Seccion Productos --- */
-.products-section { padding: 100px 5%; background: #050505; text-align: center; }
-.products-section h2 { font-size: 2.5rem; margin-bottom: 50px; }
+.hero-buttons { display: flex; gap: 20px; justify-content: center; }
+.btn-explore { padding: 15px 35px; border: 2px solid #ff0000; color: #fff; text-decoration: none; font-weight: 700; border-radius: 5px; transition: 0.3s; }
+.btn-explore:hover { background: #ff0000; box-shadow: 0 0 20px #ff0000; }
+.btn-discord-hero { padding: 15px 35px; background: #5865F2; color: #fff; text-decoration: none; font-weight: 700; border-radius: 5px; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+.btn-discord-hero:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(88,101,242,0.4); }
+
+/* --- Productos --- */
+.products-section { padding: 100px 5%; background: #050505; }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; text-transform: uppercase; font-weight: 900; }
 .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
 
 .product-card {
     background: #111;
-    padding: 30px;
-    border-radius: 20px;
     border: 1px solid #222;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
     transition: 0.4s;
     position: relative;
     overflow: hidden;
 }
-.product-card:hover { border-color: #ff0000; transform: translateY(-10px); background: #151515; }
-.product-card img { width: 100px; margin-bottom: 20px; }
-.product-card h3 { margin-bottom: 10px; }
-.product-card p { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
-.price { display: block; font-size: 1.5rem; font-weight: 800; color: #ff0000; margin-bottom: 20px; }
-.btn-buy { width: 100%; padding: 12px; background: #222; color: #fff; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; }
-.product-card:hover .btn-buy { background: #ff0000; }
-
-.product-badge { position: absolute; top: 15px; right: -30px; background: #ff0000; color: #fff; padding: 5px 40px; transform: rotate(45deg); font-size: 12px; font-weight: 700; }
+.product-card:hover { transform: translateY(-10px); border-color: #ff0000; background: #151515; }
+.product-badge { position: absolute; top: 15px; right: -30px; background: #ff0000; color: #fff; padding: 5px 40px; transform: rotate(45deg); font-size: 10px; font-weight: 800; }
+.product-img-box img { width: 80px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,0,0,0.2)); }
+.product-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+.product-card p { color: #777; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5; }
+.price { display: block; font-size: 1.6rem; font-weight: 900; color: #ff0000; margin-bottom: 20px; }
+.btn-buy { width: 100%; padding: 12px; background: #222; color: #fff; border: none; border-radius: 5px; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+.product-card:hover .btn-buy { background: #ff0000; box-shadow: 0 5px 15px rgba(255,0,0,0.3); }
 
 /* --- Contacto --- */
-.contact-section { padding: 100px 5%; display: flex; justify-content: center; }
-.contact-card { background: linear-gradient(145deg, #111, #000); padding: 50px; border-radius: 20px; border: 1px solid #ff0000; text-align: center; max-width: 600px; }
-.social-buttons { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
-.btn-social { padding: 15px 30px; border-radius: 10px; text-decoration: none; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+.contact-section { padding: 100px 5%; display: flex; justify-content: center; background: #000; }
+.contact-card { background: #0a0a0a; border: 1px solid #ff0000; padding: 50px; border-radius: 20px; text-align: center; max-width: 700px; }
+.contact-card h2 { font-size: 2rem; margin-bottom: 20px; }
+.contact-card p { color: #aaa; margin-bottom: 30px; }
+.social-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.btn-social { padding: 15px 30px; border-radius: 5px; text-decoration: none; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
 .discord { background: #5865F2; }
 .email { background: #333; }
 .btn-social:hover { transform: scale(1.05); filter: brightness(1.2); }
 
-footer { padding: 40px; text-align: center; border-top: 1px solid #222; color: #555; font-size: 14px; }
+/* --- Footer --- */
+.footer { padding: 40px; text-align: center; color: #444; font-size: 0.9rem; border-top: 1px solid #111; }
+
+/* Móviles */
+@media (max-width: 768px) {
+    .main-title { font-size: 3rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+}

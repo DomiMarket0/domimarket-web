@@ -1,38 +1,32 @@
-const CLIENT_ID = '1438645485773652241';
-const REDIRECT_URI = 'https://domimarket0.github.io/domimarket-web/';
-
+// Función para mostrar/ocultar el menú del usuario (si está logueado)
 function toggleMenu() {
-    document.getElementById("dropdown-menu").classList.toggle("show");
+    const menu = document.getElementById('dropdown-menu');
+    menu.classList.toggle('active');
 }
 
-function logout() {
-    localStorage.removeItem('ds_token');
-    window.location.href = 'index.html';
-}
-
-window.onload = () => {
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
-    let token = params.get('access_token') || localStorage.getItem('ds_token');
-
-    if (token) {
-        localStorage.setItem('ds_token', token);
-        window.history.replaceState({}, document.title, window.location.pathname);
-
-        document.getElementById('login-btn').style.display = 'none';
-        document.getElementById('user-profile').style.display = 'block';
-
-        fetch('https://discord.com/api/users/@me', {
-            headers: { authorization: `Bearer ${token}` }
-        })
-        .then(res => res.json())
-        .then(user => {
-            document.getElementById('user-name').innerText = user.username;
-            const avatar = user.avatar 
-                ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
-                : 'https://discord.com/assets/embed/avatars/0.png';
-            document.getElementById('user-avatar').src = avatar;
-        })
-        .catch(() => logout());
+// Cerrar el menú si se hace clic fuera
+window.onclick = function(event) {
+    if (!event.target.closest('.user-menu')) {
+        const dropdowns = document.getElementsByClassName("menu-box");
+        for (let i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].classList.remove('active');
+        }
     }
 }
+
+// Ejemplo de función para cerrar sesión
+function logout() {
+    alert("Cerrando sesión...");
+    // Aquí iría la lógica para borrar cookies/sesión
+    location.reload();
+}
+
+// Desplazamiento suave adicional (opcional, ya lo hace el CSS)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

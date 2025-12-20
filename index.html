@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Premium Scripts</title>
+    <title>DomiMarket | Tienda de Scripts</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -15,15 +15,23 @@
             <li><a href="#productos">Productos</a></li>
             <li><a href="https://discord.gg/TU_LINK" target="_blank">Contacto</a></li>
         </ul>
-        <a href="https://discord.gg/TU_LINK" class="btn-discord">DISCORD</a>
+        <div class="nav-auth">
+            <button class="btn-login" id="loginBtn">Iniciar Sesión</button>
+            <a href="https://discord.gg/TU_LINK" class="btn-discord">Discord Store</a>
+        </div>
     </nav>
 
     <header class="hero">
         <h1 class="fade-in">NUESTROS SCRIPTS</h1>
-        <p class="fade-in-delayed">Exclusividad y Optimización para MTA:SA</p>
+        <div class="categories fade-in-delayed">
+            <button class="cat-btn active">Todos</button>
+            <button class="cat-btn">Robos</button>
+            <button class="cat-btn">Sistemas</button>
+            <button class="cat-btn">Mapeos</button>
+        </div>
     </header>
 
-    <main class="container" id="productos">
+    <main class="container">
         <div id="grid-productos" class="products-grid">
             </div>
     </main>

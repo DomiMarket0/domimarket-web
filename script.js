@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Tu configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyA0B6BZdwXCXnidBn2seeZL7JdPjY6mTMc",
     authDomain: "domimarket-64ed1.firebaseapp.com",
@@ -14,40 +13,32 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-function renderNav() {
+// CAMBIAR MENÚ SEGÚN SESIÓN
+function updateNav() {
     const nav = document.getElementById('auth-nav');
-    if (!nav) return;
-    
-    // Verifica si el usuario inició sesión
     const isLogged = localStorage.getItem('logged') === 'true';
 
     if (isLogged) {
-        // MENÚ PARA USUARIO CON SESIÓN (Mantiene navegación + PANEL + SALIR)
         nav.innerHTML = `
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#productos">Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-            <li><a href="dashboard.html" class="panel-btn neon-border">PANEL</a></li>
-            <li><a href="#" id="logout-btn" class="logout-link">SALIR</a></li>
+            <li><a href="dashboard.html" style="border:1px solid red; padding:5px 10px;">PANEL</a></li>
+            <li><a id="btn-salir" class="logout-btn">SALIR</a></li>
         `;
-
-        document.getElementById('logout-btn').onclick = (e) => {
-            e.preventDefault();
-            localStorage.removeItem('logged'); // Elimina la sesión
-            location.reload(); // Recarga para mostrar el botón de Iniciar Sesión
+        document.getElementById('btn-salir').onclick = () => {
+            localStorage.setItem('logged', 'false');
+            location.reload();
         };
     } else {
-        // MENÚ PARA VISITANTE
         nav.innerHTML = `
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#productos">Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-            <li><a href="login.html" class="btn-nav-login neon-button">INICIAR SESIÓN</a></li>
+            <li><a href="login.html" class="btn-nav-login">INICIAR SESIÓN</a></li>
         `;
     }
 }
 
-// Carga de productos con diseño profesional
+// CARGAR PRODUCTOS
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
@@ -56,21 +47,14 @@ if (grid) {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || 'logo.png'}" class="product-img">
                     <div class="product-info">
                         <h3>${p.nombre}</h3>
                         <p>${p.descripcion}</p>
-                    </div>
-                    <div class="product-action-bar">
-                        <a href="#" class="btn-details">DETALLES</a>
-                        <div class="action-right">
-                            <span class="price-tag">$${p.precio}</span>
-                            <button class="btn-buy-now">COMPRAR</button>
-                        </div>
+                        <span class="price-tag">$${p.precio}</span>
                     </div>
                 </div>`;
         });
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderNav);
+document.addEventListener('DOMContentLoaded', updateNav);

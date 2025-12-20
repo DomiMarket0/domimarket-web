@@ -1,32 +1,56 @@
-/* Forzar fondo oscuro */
+:root {
+    --primary: #ff0000;
+    --bg: #050505;
+    --card: #111111;
+}
+
 body {
-    background-color: #050505 !important;
+    background-color: var(--bg) !important;
     color: white !important;
-    margin: 0;
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilo para el botón SALIR */
-.logout-link {
-    color: #ff4444 !important;
-    font-weight: 900;
-    transition: 0.3s;
-}
-.logout-link:hover {
-    text-shadow: 0 0 10px #ff0000;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #000;
+    border-bottom: 1px solid #222;
 }
 
-/* Efecto Neón para Iniciar Sesión */
-.neon-button {
-    background: #ff0000 !important;
-    box-shadow: 0 0 15px #ff0000;
-    border-radius: 5px;
+.brand { font-size: 1.5rem; font-weight: 900; }
+.red { color: var(--primary); }
+
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+.nav-links a { color: white; text-decoration: none; font-weight: 600; }
+
+/* Botones de acción */
+.btn-nav-login {
+    background: var(--primary);
     padding: 10px 20px;
-    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--primary);
 }
 
-/* Borde Neón para el Panel */
-.neon-border {
-    border: 1px solid #ff0000 !important;
-    box-shadow: inset 0 0 5px #ff0000;
+.logout-btn { color: #ff4444 !important; cursor: pointer; }
+
+/* Tarjetas de productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 8%;
 }
+
+.product-card {
+    background: var(--card);
+    border: 1px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product-info { padding: 20px; }
+.price-tag { color: #2ecc71; font-weight: 900; font-size: 1.2rem; }

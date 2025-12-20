@@ -2,11 +2,10 @@ function renderNav() {
     const nav = document.getElementById('auth-nav');
     if (!nav) return;
     
-    // Detecta si hay sesión activa
     const isLogged = localStorage.getItem('logged') === 'true';
 
     if (isLogged) {
-        // --- VISTA LOGUEADO (Con Panel y Salir) ---
+        // VISTA LOGUEADO: Mantiene todo + PANEL + SALIR
         nav.innerHTML = `
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#productos">Productos</a></li>
@@ -17,14 +16,13 @@ function renderNav() {
             </a></li>
         `;
 
-        // Configuración del botón salir
         document.getElementById('logout-btn').onclick = (e) => {
             e.preventDefault();
-            localStorage.setItem('logged', 'false'); // Cierra sesión
-            location.reload(); // Recarga para mostrar el menú de visitante
+            localStorage.setItem('logged', 'false');
+            location.reload(); 
         };
     } else {
-        // --- VISTA VISITANTE (Con Iniciar Sesión) ---
+        // VISTA VISITANTE: Mantiene todo + INICIAR SESIÓN
         nav.innerHTML = `
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#productos">Productos</a></li>
@@ -34,5 +32,5 @@ function renderNav() {
     }
 }
 
-// Asegúrate de que se ejecute al cargar la página
+// Ejecutar al cargar
 document.addEventListener('DOMContentLoaded', renderNav);

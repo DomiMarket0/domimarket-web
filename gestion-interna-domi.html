@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Acceso Privado | DomiMarket</title>
+    <title>Admin Privado | DomiMarket</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
     <style>
         body { background: #000; color: #fff; font-family: 'Poppins', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
         .login-box, .admin-box { background: #111; padding: 30px; border-radius: 15px; border: 1px solid #ff0000; width: 90%; max-width: 400px; box-shadow: 0 0 20px rgba(255,0,0,0.5); }
-        h2 { color: #ff0000; text-align: center; text-transform: uppercase; }
+        h2 { color: #ff0000; text-align: center; text-transform: uppercase; margin-bottom: 20px; }
         input, textarea { width: 100%; padding: 12px; margin: 10px 0; background: #222; border: 1px solid #333; border-radius: 5px; color: #fff; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; background: #ff0000; color: #fff; border: none; font-weight: 900; cursor: pointer; border-radius: 5px; }
+        button { width: 100%; padding: 15px; background: #ff0000; color: #fff; border: none; font-weight: 900; cursor: pointer; border-radius: 5px; width: 100%; }
         #panel-contenido { display: none; }
     </style>
 </head>
@@ -23,10 +23,10 @@
     </div>
 
     <div id="panel-contenido" class="admin-box">
-        <h2>Subir Script</h2>
-        <input type="text" id="nombre" placeholder="Nombre del Script">
+        <h2>Subir Nuevo Script</h2>
+        <input type="text" id="nombre" placeholder="Nombre">
         <input type="text" id="precio" placeholder="Precio">
-        <input type="text" id="imagen" placeholder="URL Imagen">
+        <input type="text" id="imagen" placeholder="Link Imagen">
         <textarea id="descripcion" placeholder="Descripción"></textarea>
         <button onclick="subir()">PUBLICAR</button>
     </div>
@@ -51,7 +51,7 @@
             if(document.getElementById('user').value === "jhonarks" && document.getElementById('pass').value === "jhonervi5") {
                 document.getElementById('login-seccion').style.display = 'none';
                 document.getElementById('panel-contenido').style.display = 'block';
-            } else { alert("Datos incorrectos"); }
+            } else { alert("Datos Incorrectos"); }
         }
 
         window.subir = async function() {

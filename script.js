@@ -13,67 +13,55 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// 1. GESTIÓN DEL MENÚ (Cambia Iniciar Sesión por Panel)
-function renderMenu() {
+// FUNCIÓN PARA EL MENÚ DINÁMICO
+function cargarMenu() {
     const nav = document.getElementById('auth-nav');
-    if(!nav) return;
+    const logueado = localStorage.getItem('logged') === 'true';
 
-    // Detectamos si el usuario está logueado
-    const isLoggedIn = localStorage.getItem('logged') === 'true';
-
-    if (isLoggedIn) {
+    if (logueado) {
         nav.innerHTML = `
             <li><a href="index.html" class="nav-item">Inicio</a></li>
-            <li><a href="dashboard.html" class="nav-item active-panel"><i class="fas fa-user-circle"></i> Panel</a></li>
-            <li><a href="#" id="logout-btn" class="nav-item logout">Salir</a></li>
+            <li><a href="dashboard.html" class="nav-item panel-active">Panel</a></li>
+            <li><a href="#" id="salir" class="nav-item" style="color:red">Salir</a></li>
         `;
-        
-        document.getElementById('logout-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.removeItem('logged');
+        document.getElementById('salir').onclick = () => {
+            localStorage.setItem('logged', 'false');
             location.reload();
-        });
+        };
     } else {
         nav.innerHTML = `
             <li><a href="index.html" class="nav-item">Inicio</a></li>
-            <li><a href="login.html" style="background:red; color:white; padding:8px 20px; border-radius:5px; text-decoration:none; font-weight:bold;">INICIAR SESIÓN</a></li>
+            <li><a href="login.html" style="background:red; color:white; padding:8px 15px; border-radius:5px; text-decoration:none;">INICIAR SESIÓN</a></li>
         `;
     }
 }
 
-// 2. CARGA DE PRODUCTOS (Protección contra base de datos vacía)
+// CARGA DE PRODUCTOS
 const grid = document.getElementById('grid-productos');
 if (grid) {
     onSnapshot(collection(db, "productos"), (snapshot) => {
+        grid.innerHTML = "";
         if (snapshot.empty) {
-            grid.innerHTML = `
-                <div style="grid-column: 1/-1; text-align: center; padding-top: 100px;">
-                    <i class="fas fa-store-slash" style="font-size: 3rem; color: #333;"></i>
-                    <h2 style="color: #444;">No hay productos en la tienda aún</h2>
-                </div>`;
+            grid.innerHTML = "<p style='text-align:center; width:100%; color:#444;'>No hay productos aún.</p>";
             return;
         }
-
-        grid.innerHTML = "";
         snapshot.forEach((doc) => {
             const p = doc.data();
             grid.innerHTML += `
                 <div class="product-card">
-                    <img src="${p.imagen || 'https://via.placeholder.com/300x180'}" class="product-img">
-                    <div class="product-info">
+                    <img src="${p.imagen || ''}" style="width:100%; height:180px; background:#000;">
+                    <div style="padding:20px;">
                         <h3>${p.nombre}</h3>
                         <p>${p.descripcion}</p>
                     </div>
                     <div class="action-bar">
-                        <span class="price">$${p.precio}</span>
+                        <span>$${p.precio}</span>
                         <button class="btn-buy">COMPRAR</button>
                     </div>
-                </div>`;
+                </div>
+            `;
         });
-    }, (error) => {
-        console.error("Error Firebase:", error);
-        grid.innerHTML = "<p>Error al conectar con la base de datos.</p>";
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderMenu);
+document.addEventListener('DOMContentLoaded', cargarMenu);

@@ -3,45 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Elite Store</title>
+    <title>DomiMarket | Software de Élite</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">DOMI<span>MARKET</span></div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <div id="auth-section">
-            <a href="login.html" class="btn-login">INICIAR SESIÓN</a>
-        </div>
-    </nav>
+    <header class="main-header">
+        <nav class="nav-elite">
+            <div class="logo">DOMI<span>MARKET</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div id="auth-zone">
+                <a href="login.html" class="btn-login-main">INICIAR SESIÓN</a>
+            </div>
+        </nav>
+    </header>
 
-    <section id="inicio" class="hero">
-        <h1>Sistemas de <span>Alto Rendimiento</span></h1>
-        <p>Optimización extrema para tu servidor.</p>
-        <a href="#productos" class="btn-rojo">EXPLORAR CATÁLOGO</a>
+    <section id="inicio" class="hero-elite">
+        <h1>SISTEMAS DE <span>ALTO RENDIMIENTO</span></h1>
+        <p>Potencia tu servidor con scripts optimizados al 100%.</p>
+        <a href="#productos" class="btn-cta">EXPLORAR CATÁLOGO</a>
     </section>
 
-    <section id="productos" class="tienda">
-        <h2 class="titulo-seccion">Productos <span>Premium</span></h2>
-        <div class="grid-productos">
-            <article class="card">
-                <img src="https://via.placeholder.com/300x150/111/ff0000?text=Sistema+Salarios" alt="Script">
-                <div class="card-info">
+    <section id="productos" class="shop-section">
+        <h2 class="title-glow">Productos <span>Premium</span></h2>
+        <div class="product-grid">
+            <div class="card-premium">
+                <div class="card-img">
+                    <img src="https://via.placeholder.com/400x200/0a0a0a/ff0000?text=Sistema+Salarios" alt="Script">
+                    <span class="pop-tag">POPULAR</span>
+                </div>
+                <div class="card-content">
                     <h3>Sistema De Salario Facc</h3>
-                    <p class="precio">$20.00</p>
-                    <div class="btns">
-                        <button class="btn-cart"><i class="fas fa-shopping-cart"></i></button>
-                        <button class="btn-detalles">DETALLES</button>
+                    <p class="price">$20.00</p>
+                    <div class="btn-row">
+                        <button class="btn-buy"><i class="fas fa-shopping-cart"></i></button>
+                        <button class="btn-info">DETALLES</button>
                     </div>
                 </div>
-            </article>
+            </div>
         </div>
     </section>
+
+    <footer id="contacto" class="elite-footer">
+        <div class="footer-content">
+            <h3>Soporte Técnico 24/7</h3>
+            <p>¿Dudas? Nuestro equipo está listo para ayudarte en Discord.</p>
+            <a href="#" class="btn-discord"><i class="fab fa-discord"></i> ÚNETE AL SERVIDOR</a>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

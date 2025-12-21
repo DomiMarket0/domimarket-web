@@ -1,26 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const authSection = document.getElementById('auth-section');
-    const salirPanel = document.getElementById('btn-salir-panel');
-    
-    // Simulación de sesión activa para pruebas
-    const isLoggedIn = localStorage.getItem('sesionActiva') === 'true';
+    const authZone = document.getElementById('auth-zone');
+    // Para probar que funciona, simulamos login:
+    const userActive = localStorage.getItem('domi_session') === 'true';
 
-    if (isLoggedIn && authSection) {
-        authSection.innerHTML = `
-            <a href="panel.html" class="btn-nav">PANEL</a>
-            <button id="logout-btn" class="btn-salir">SALIR</button>
+    if (userActive) {
+        authZone.innerHTML = `
+            <div class="user-controls">
+                <a href="panel.html" class="btn-panel-link">PANEL</a>
+                <button id="logout-trigger" class="btn-logout">SALIR <i class="fas fa-sign-out-alt"></i></button>
+            </div>
         `;
-        
-        document.getElementById('logout-btn').onclick = () => {
-            localStorage.setItem('sesionActiva', 'false');
-            window.location.reload();
-        };
-    }
 
-    if (salirPanel) {
-        salirPanel.onclick = () => {
-            localStorage.setItem('sesionActiva', 'false');
+        document.getElementById('logout-trigger').addEventListener('click', () => {
+            localStorage.setItem('domi_session', 'false');
             window.location.href = 'index.html';
-        };
+        });
     }
 });

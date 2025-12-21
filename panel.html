@@ -9,39 +9,46 @@
 </head>
 <body>
     <nav class="top-navbar">
-        <div class="nav-logo"><i class="fas fa-cube"></i> DOMIMARKET PANEL</div>
-        <div class="nav-links">
-            <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-            <a href="#" id="btn-salir-panel"><i class="fas fa-sign-out-alt"></i> Salir</a>
+        <div class="logo-panel">DOMI<span>MARKET</span> PANEL</div>
+        <div class="nav-right">
+            <a href="index.html">Tienda</a>
+            <a href="#" id="logout-btn" class="salir-link">SALIR</a>
         </div>
     </nav>
 
-    <div class="main-layout">
-        <main class="content-area">
-            <div class="welcome-banner">
-                <h1>Mis Productos</h1>
-                <p>Gestiona tus adquisiciones individuales.</p>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="https://via.placeholder.com/60" alt="User">
+                <h3>jhonarkks</h3>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/300x150/111/39ff14?text=Sistema+Musica" alt="Script">
-                    <div class="card-info">
-                        <h3>Sistema Música</h3>
-                        <button class="btn-download">Descargar Ahora</button>
+            <nav class="side-nav">
+                <a href="#" class="active"><i class="fas fa-box"></i> Mis Productos</a>
+                <a href="#"><i class="fas fa-key"></i> Licencias</a>
+                <a href="#"><i class="fas fa-cog"></i> Configuración</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="header-content">
+                <h1>Mis Productos</h1>
+                <div class="stats">
+                    <div class="stat-card">Productos: <span>3</span></div>
+                    <div class="stat-card">Invertido: <span class="verde">$5.00</span></div>
+                </div>
+            </div>
+
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="https://via.placeholder.com/80" alt="Script">
+                    <div class="info">
+                        <h4>Sistema Música</h4>
+                        <p>Adquirido: 07/11/2025</p>
                     </div>
+                    <button class="btn-download"><i class="fas fa-download"></i></button>
                 </div>
             </div>
         </main>
-        <aside class="sidebar">
-            <div class="panel-card profile">
-                <img src="https://via.placeholder.com/50" class="avatar">
-                <h3>jhonarkks</h3>
-            </div>
-            <div class="panel-card license">
-                <h4>CLAVE LICENCIA</h4>
-                <code>TMX-21708-R2-4212</code>
-            </div>
-        </aside>
     </div>
     <script src="script.js"></script>
 </body>

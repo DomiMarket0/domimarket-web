@@ -9,51 +9,40 @@
 </head>
 <body>
     <nav class="top-navbar">
-        <div class="nav-logo">
-            <i class="fas fa-cube"></i> DOMIMARKET <span>PANEL</span>
-        </div>
+        <div class="nav-logo"><i class="fas fa-cube"></i> DOMIMARKET PANEL</div>
         <div class="nav-links">
             <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-            <a href="index.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Salir</a>
-            <a href="#" class="settings-icon"><i class="fas fa-cog"></i></a>
+            <a href="#" id="btn-salir-panel"><i class="fas fa-sign-out-alt"></i> Salir</a>
         </div>
     </nav>
 
-    <div class="container main-layout">
+    <div class="main-layout">
         <main class="content-area">
             <div class="welcome-banner">
                 <h1>Mis Productos</h1>
-                <p>Gestiona y descarga tus scripts adquiridos.</p>
+                <p>Gestiona tus adquisiciones individuales.</p>
             </div>
-
             <div class="products-grid">
                 <div class="product-card">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/300x150/1a1a1a/ff0000?text=Sistema+Musica" alt="Producto">
-                        <span class="badge">Individual</span>
-                    </div>
+                    <img src="https://via.placeholder.com/300x150/111/39ff14?text=Sistema+Musica" alt="Script">
                     <div class="card-info">
                         <h3>Sistema Música</h3>
-                        <div class="meta-info"><i class="far fa-calendar-alt"></i> 07/11/2025</div>
-                        <button class="btn-download"><i class="fas fa-download"></i> Descargar Ahora</button>
+                        <button class="btn-download">Descargar Ahora</button>
                     </div>
                 </div>
             </div>
         </main>
-
         <aside class="sidebar">
-            <div class="panel-card profile-card">
-                <img src="https://via.placeholder.com/50" alt="Avatar" class="avatar">
-                <div class="profile-info">
-                    <h3>jhonarkks</h3>
-                    <p>Cliente VIP</p>
-                </div>
+            <div class="panel-card profile">
+                <img src="https://via.placeholder.com/50" class="avatar">
+                <h3>jhonarkks</h3>
             </div>
-            <div class="panel-card side-menu">
-                <a href="#" class="active"><i class="fas fa-box-open"></i> Mis Productos</a>
-                <a href="#"><i class="fas fa-network-wired"></i> Configuración IP</a>
+            <div class="panel-card license">
+                <h4>CLAVE LICENCIA</h4>
+                <code>TMX-21708-R2-4212</code>
             </div>
         </aside>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

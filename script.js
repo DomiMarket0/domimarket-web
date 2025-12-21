@@ -1,17 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     const authSection = document.getElementById('auth-section');
-    // Verifica si el usuario inició sesión
+    const salirPanel = document.getElementById('btn-salir-panel');
+    
+    // Simulación de sesión activa para pruebas
     const isLoggedIn = localStorage.getItem('sesionActiva') === 'true';
 
-    if (isLoggedIn) {
+    if (isLoggedIn && authSection) {
         authSection.innerHTML = `
             <a href="panel.html" class="btn-nav">PANEL</a>
-            <button id="btn-salir" class="btn-salir">SALIR</button>
+            <button id="logout-btn" class="btn-salir">SALIR</button>
         `;
-
-        document.getElementById('btn-salir').onclick = () => {
+        
+        document.getElementById('logout-btn').onclick = () => {
             localStorage.setItem('sesionActiva', 'false');
             window.location.reload();
+        };
+    }
+
+    if (salirPanel) {
+        salirPanel.onclick = () => {
+            localStorage.setItem('sesionActiva', 'false');
+            window.location.href = 'index.html';
         };
     }
 });

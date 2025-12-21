@@ -1,38 +1,76 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"><title>DomiMarket | Soluciones Enterprise</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomiMarket | Elite Software</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div id="loader" class="main-loader">
-        <div class="loader-circle"></div>
-        <span style="margin-top: 15px; font-weight: 900; color: #ff0000;">DOMIMARKET</span>
-    </div>
-
-    <header class="nav-pro">
-        <nav class="container nav-flex">
+    <header class="navbar-elite">
+        <nav class="nav-container">
             <div class="logo">DOMI<span>MARKET</span></div>
-            <div id="auth-container">
-                <a href="login.html" class="btn-rojo">ACCESO CLIENTE</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div id="auth-section">
+                <a href="login.html" id="btn-auth" class="btn-rojo-lite">INICIAR SESIÓN</a>
             </div>
         </nav>
     </header>
 
-    <section class="hero container">
+    <section id="inicio" class="hero-section">
         <div class="hero-content">
-            <p style="color:red; font-weight: 800; margin-bottom: 10px;">PROYECTOS 2025</p>
-            <h1 class="titulo-gigante">EL FUTURO DE TUS <span>SISTEMAS</span> COMIENZA AQUÍ</h1>
-            <p style="font-size: 1.2rem; color: #888; margin-bottom: 30px; max-width: 600px;">
-                Desarrollo de software de alto rendimiento, optimización extrema y seguridad blindada.
-            </p>
-            <div style="display: flex; gap: 20px;">
-                <a href="#scripts" class="btn-rojo">VER TIENDA</a>
-                <a href="panel.html" style="color:white; align-self:center; font-weight:700; text-decoration:none;">IR AL PANEL</a>
-            </div>
+            <h1>Sistemas de <span>Alto Rendimiento</span></h1>
+            <p>Optimización extrema y seguridad de grado empresarial para tu servidor.</p>
+            <a href="#productos" class="btn-rojo">EXPLORAR CATÁLOGO</a>
         </div>
     </section>
+
+    <section id="productos" class="productos-container">
+        <div class="header-titulos">
+            <h2 class="titulo-lujo">Productos <span>Premium</span></h2>
+        </div>
+        <div class="grid-productos">
+            <article class="card-elite">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/600x400/000/ff0000?text=SISTEMA+SALARIOS" alt="Script">
+                </div>
+                <div class="card-body">
+                    <h3>Sistema De Salario Facc</h3>
+                    <p class="precio">$20.00</p>
+                    <div class="btns-group">
+                        <button class="btn-compra"><i class="fas fa-shopping-cart"></i></button>
+                        <button class="btn-detalles">DETALLES</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card-elite">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/600x400/000/ff0000?text=IDENTIDAD+SYSTEM" alt="Script">
+                </div>
+                <div class="card-body">
+                    <h3>Identidad System</h3>
+                    <p class="precio">$15.00</p>
+                    <div class="btns-group">
+                        <button class="btn-compra"><i class="fas fa-shopping-cart"></i></button>
+                        <button class="btn-detalles">DETALLES</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto-section">
+        <h2 class="titulo-lujo">Soporte <span>24/7</span></h2>
+        <p>¿Tienes dudas? Únete a nuestro Discord o envíanos un correo.</p>
+        <a href="https://discord.gg/tu-link" class="btn-discord"><i class="fab fa-discord"></i> DISCORD</a>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>

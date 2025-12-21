@@ -3,61 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomiMarket | Elite Software</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>DomiMarket | Elite</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="navbar-elite">
-        <nav class="nav-container">
-            <div class="logo">DOMI<span>MARKET</span></div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <div id="auth-section">
-                <a href="login.html" id="btn-auth" class="btn-rojo-lite">INICIAR SESIÓN</a>
-            </div>
-        </nav>
-    </header>
-
-    <section id="inicio" class="hero-section">
-        <div class="hero-content">
-            <h1>Sistemas de <span>Alto Rendimiento</span></h1>
-            <p>Optimización extrema y seguridad de grado empresarial para tu servidor.</p>
-            <a href="#productos" class="btn-rojo">EXPLORAR CATÁLOGO</a>
+    <nav class="navbar">
+        <div class="logo">DOMI<span>MARKET</span></div>
+        <ul class="menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div id="auth-section">
+            <a href="login.html" class="btn-login">INICIAR SESIÓN</a>
         </div>
-    </section>
+    </nav>
 
-    <section id="productos" class="productos-container">
-        <div class="header-titulos">
-            <h2 class="titulo-lujo">Productos <span>Premium</span></h2>
-        </div>
+    <section id="productos" class="tienda">
+        <h2 class="titulo-lujo">Productos <span>Premium</span></h2>
         <div class="grid-productos">
-            <article class="card-elite">
-                <div class="img-container">
-                    <img src="https://via.placeholder.com/600x400/000/ff0000?text=SISTEMA+SALARIOS" alt="Script">
-                </div>
-                <div class="card-body">
+            <article class="card">
+                <img src="https://via.placeholder.com/300x150/111/ff0000?text=Sistema+Salarios" alt="Script">
+                <div class="card-info">
                     <h3>Sistema De Salario Facc</h3>
                     <p class="precio">$20.00</p>
-                    <div class="btns-group">
-                        <button class="btn-compra"><i class="fas fa-shopping-cart"></i></button>
-                        <button class="btn-detalles">DETALLES</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card-elite">
-                <div class="img-container">
-                    <img src="https://via.placeholder.com/600x400/000/ff0000?text=IDENTIDAD+SYSTEM" alt="Script">
-                </div>
-                <div class="card-body">
-                    <h3>Identidad System</h3>
-                    <p class="precio">$15.00</p>
-                    <div class="btns-group">
-                        <button class="btn-compra"><i class="fas fa-shopping-cart"></i></button>
+                    <div class="btns">
+                        <button class="btn-cart"><i class="fas fa-shopping-cart"></i></button>
                         <button class="btn-detalles">DETALLES</button>
                     </div>
                 </div>
@@ -65,12 +36,11 @@
         </div>
     </section>
 
-    <section id="contacto" class="contacto-section">
-        <h2 class="titulo-lujo">Soporte <span>24/7</span></h2>
-        <p>¿Tienes dudas? Únete a nuestro Discord o envíanos un correo.</p>
-        <a href="https://discord.gg/tu-link" class="btn-discord"><i class="fab fa-discord"></i> DISCORD</a>
+    <section id="contacto" class="soporte">
+        <h3>Soporte 24/7</h3>
+        <p>¿Tienes dudas? Únete a nuestro Discord.</p>
+        <a href="#" class="btn-discord"><i class="fab fa-discord"></i> DISCORD</a>
     </section>
 
-    <script src="script.js"></script>
-</body>
+    <script src="script.js"></script> </body>
 </html>

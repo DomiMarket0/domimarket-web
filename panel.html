@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <nav class="top-navbar">
         <div class="nav-logo">
-            <i class="fas fa-cube"></i> DOMIMARKET PANEL
+            <i class="fas fa-cube"></i> DOMIMARKET <span>PANEL</span>
         </div>
         <div class="nav-links">
             <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-            <a href="#" class="active"><i class="fas fa-sign-out-alt"></i> Salir</a>
+            <a href="index.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Salir</a>
             <a href="#" class="settings-icon"><i class="fas fa-cog"></i></a>
         </div>
     </nav>
@@ -23,59 +22,19 @@
     <div class="container main-layout">
         <main class="content-area">
             <div class="welcome-banner">
-                <div class="banner-text">
-                    <h1>Mis Productos</h1>
-                    <p>Gestiona y descarga tus productos individuales adquiridos.</p>
-                </div>
-            </div>
-
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar en tus productos...">
+                <h1>Mis Productos</h1>
+                <p>Gestiona y descarga tus scripts adquiridos.</p>
             </div>
 
             <div class="products-grid">
                 <div class="product-card">
                     <div class="card-image">
-                        <img src="https://via.placeholder.com/300x150/1a1a1a/39ff14?text=Sistema+Musica" alt="Producto">
-                        <span class="badge">Producto Individual</span>
+                        <img src="https://via.placeholder.com/300x150/1a1a1a/ff0000?text=Sistema+Musica" alt="Producto">
+                        <span class="badge">Individual</span>
                     </div>
                     <div class="card-info">
                         <h3>Sistema Música</h3>
-                        <p>Sistema Música avanzado con interfaz personalizable y optimizada.</p>
-                        <div class="meta-info">
-                            <i class="far fa-calendar-alt"></i> Adquirido: 07/11/2025
-                        </div>
-                        <button class="btn-download"><i class="fas fa-download"></i> Descargar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="card-image">
-                         <img src="https://via.placeholder.com/300x150/1a1a1a/39ff14?text=Comisaria+V3" alt="Producto">
-                        <span class="badge">Producto Individual</span>
-                    </div>
-                    <div class="card-info">
-                        <h3>Comisaría V3</h3>
-                        <p>Comisaría en los santos moderna y editable.</p>
-                        <div class="meta-info">
-                            <i class="far fa-calendar-alt"></i> Adquirido: 04/11/2025
-                        </div>
-                        <button class="btn-download"><i class="fas fa-download"></i> Descargar Ahora</button>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="card-image">
-                         <img src="https://via.placeholder.com/300x150/1a1a1a/39ff14?text=Apartamentos" alt="Producto">
-                         <span class="badge">Producto Individual</span>
-                    </div>
-                    <div class="card-info">
-                        <h3>Apartamentos</h3>
-                        <p>(GRATIS) Apartamentos estilo caserío, texturas editables.</p>
-                        <div class="meta-info">
-                            <i class="far fa-calendar-alt"></i> Adquirido: 11/10/2025
-                        </div>
+                        <div class="meta-info"><i class="far fa-calendar-alt"></i> 07/11/2025</div>
                         <button class="btn-download"><i class="fas fa-download"></i> Descargar Ahora</button>
                     </div>
                 </div>
@@ -87,46 +46,12 @@
                 <img src="https://via.placeholder.com/50" alt="Avatar" class="avatar">
                 <div class="profile-info">
                     <h3>jhonarkks</h3>
-                    <p>Panel de Cliente</p>
+                    <p>Cliente VIP</p>
                 </div>
             </div>
-
-            <div class="panel-card stats-card">
-                <div class="stat-row">
-                    <span>Productos Comprados</span>
-                    <span class="stat-value">3</span>
-                </div>
-                <div class="stat-row">
-                    <span>Total Invertido</span>
-                    <span class="stat-value stat-green">$5.00</span>
-                </div>
-            </div>
-
             <div class="panel-card side-menu">
                 <a href="#" class="active"><i class="fas fa-box-open"></i> Mis Productos</a>
-                <a href="#"><i class="fas fa-star"></i> Mis Planes</a>
-            </div>
-
-            <div class="panel-card license-card">
-                <h4><i class="fas fa-key"></i> CLAVE DE LICENCIA</h4>
-                <div class="license-box">
-                    <code>TMX21708217902-78R2-4729-4212</code>
-                    <button class="btn-copy"><i class="far fa-copy"></i></button>
-                </div>
-            </div>
-
-            <div class="panel-card config-card">
-                <h4><i class="fas fa-network-wired"></i> CONFIGURACIÓN DE RED</h4>
-                
-                <div class="input-group">
-                    <label>IP Autorizada</label>
-                    <input type="text" value="45.26.203.22">
-                </div>
-                 <div class="input-group">
-                    <label>Puerto Autorizado</label>
-                    <input type="text" value="22053">
-                </div>
-                <button class="btn-save"><i class="fas fa-save"></i> Guardar Cambios</button>
+                <a href="#"><i class="fas fa-network-wired"></i> Configuración IP</a>
             </div>
         </aside>
     </div>

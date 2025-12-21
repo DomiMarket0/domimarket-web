@@ -1,17 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const authBtn = document.getElementById('btn-auth');
-    const user = localStorage.getItem('userLogueado');
+    const authContainer = document.getElementById('auth-section');
+    // Simulamos que el usuario 'jhonarkks' está logueado
+    const user = localStorage.getItem('userLogueado') || "jhonarkks"; 
 
     if (user) {
-        // Si hay usuario, ponemos el botón de SALIR
-        authBtn.innerHTML = 'SALIR <i class="fas fa-sign-out-alt"></i>';
-        authBtn.href = '#';
-        authBtn.classList.add('btn-salir');
-        
-        authBtn.addEventListener('click', (e) => {
+        // Si está logueado, mostramos el acceso al PANEL y el botón SALIR
+        authContainer.innerHTML = `
+            <a href="panel.html" class="btn-nav">PANEL</a>
+            <a href="#" id="logout-btn" class="btn-nav salir">SALIR</a>
+        `;
+
+        document.getElementById('logout-btn').addEventListener('click', (e) => {
             e.preventDefault();
             localStorage.removeItem('userLogueado');
-            window.location.reload(); // Recarga para volver a "Iniciar Sesión"
+            window.location.href = 'index.html';
         });
     }
 });

@@ -5,40 +5,36 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="padding-top: 120px;">
-    <header class="header-pro">
+<body style="padding-top: 100px;">
+    <header class="nav-pro">
         <nav class="container nav-flex">
-            <div class="logo-dm">DM <span>CONTROL</span></div>
-            <a href="index.html" style="color:white; text-decoration:none; font-weight:700;">CERRAR SESIÓN</a>
+            <div class="logo">DM <span>PANEL</span></div>
+            <a href="index.html" style="color:white; text-decoration:none;">Cerrar Sesión</a>
         </nav>
     </header>
 
-    <div class="container" style="display: grid; grid-template-columns: 1fr 380px; gap: 40px;">
+    <div class="container" style="display: grid; grid-template-columns: 1fr 350px; gap: 40px; margin-top: 50px;">
         <main>
-            <div class="card-dm" style="background: linear-gradient(135deg, #200, #000); margin-bottom: 30px;">
-                <h1 style="font-size: 2.5rem;">Mis <span>Sistemas</span></h1>
-                <p>Gestiona tus licencias y descarga tus archivos.</p>
-            </div>
-            
-            <div class="grid-pro">
-                <div class="card-dm">
-                    <img src="https://via.placeholder.com/600x350/000/ff0000?text=DESCARGAR+SCRIPT">
-                    <h3>Comisaría V3 Premium</h3>
-                    <p style="color:#777;">Versión optimizada con interiores personalizados.</p>
-                    <button class="btn-dm" style="width:100%; margin-top:20px;"><i class="fas fa-download"></i> DESCARGAR AHORA</button>
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Mis <span>Productos</span> Adquiridos</h2>
+            <div class="grid-scripts">
+                <div class="card-script">
+                    <img src="https://via.placeholder.com/400x200/000/ff0000?text=SCRIPT+ROJO" style="width:100%; border-radius:8px;">
+                    <h3 style="margin:15px 0;">Sistema de Seguridad V5</h3>
+                    <p style="color:#666;">Protección total contra ataques y logs avanzados.</p>
+                    <button class="btn-rojo" style="width:100%; margin-top:20px;">DESCARGAR AHORA</button>
                 </div>
             </div>
         </main>
 
         <aside>
-            <div class="card-dm" style="margin-bottom: 25px; border-left: 4px solid red;">
-                <h4 style="color:red; margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> LICENCIA ACTIVA</h4>
-                <code style="background:#000; padding:12px; display:block; border-radius:5px; border:1px solid #333; color:red;">DM-PRO-77X-99Y</code>
+            <div class="card-script" style="margin-bottom: 20px;">
+                <h4 style="color:red; margin-bottom: 15px;">CLAVE DE LICENCIA</h4>
+                <code style="background:#000; padding:10px; display:block; border-radius:5px; border:1px solid red;">DM-2025-XXXX-XXXX</code>
             </div>
-            <div class="card-dm">
-                <h4 style="margin-bottom: 15px;"><i class="fas fa-server"></i> CONFIGURACIÓN IP</h4>
-                <input type="text" placeholder="IP Autorizada (Ej: 45.26.203.22)" style="width:100%; background:#000; border:1px solid #333; color:white; padding:15px; border-radius:5px; margin-bottom:15px;">
-                <button class="btn-dm" style="width:100%;">GUARDAR CAMBIOS</button>
+            <div class="card-script">
+                <h4 style="margin-bottom: 15px;">CONFIGURACIÓN IP</h4>
+                <input type="text" placeholder="IP Autorizada" style="width:100%; background:#000; border:1px solid #333; color:white; padding:12px; border-radius:5px; margin-bottom:15px;">
+                <button class="btn-rojo" style="width:100%;">GUARDAR CAMBIOS</button>
             </div>
         </aside>
     </div>

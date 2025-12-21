@@ -1,44 +1,44 @@
-/* DISEÑO REESTABLECIDO - SIN BUGS */
-.section-productos { padding: 100px 0; background: #000; }
-.header-titulos { text-align: left; margin-bottom: 60px; padding: 0 40px; }
-.badge-rojo { color: #ff0000; font-weight: 900; letter-spacing: 2px; font-size: 0.8rem; }
-.titulo-seccion { font-size: 3.5rem; font-weight: 900; margin: 10px 0; color: #fff; }
-.titulo-seccion span { color: #ff0000; text-shadow: 0 0 15px rgba(255, 0, 0, 0.5); }
+/* RESET Y FONDO */
+body { background-color: #000; color: white; margin: 0; font-family: 'Inter', sans-serif; }
 
-.grid-productos-premium {
+.section-productos { padding: 80px 40px; }
+.tag-rojo { color: #ff0000; font-weight: 800; letter-spacing: 2px; font-size: 0.8rem; }
+.titulo-lujo { font-size: 3.5rem; font-weight: 900; margin: 15px 0; }
+.titulo-lujo span { color: #ff0000; text-shadow: 0 0 20px rgba(255, 0, 0, 0.5); }
+.descripcion { color: #888; max-width: 600px; margin-bottom: 50px; }
+
+/* CUADRÍCULA PROFESIONAL */
+.grid-elite {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding: 0 40px;
 }
 
-.card-producto-elite {
-    background: #0f0f0f;
-    border: 1px solid rgba(255, 0, 0, 0.1);
+.card-premium {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 15px;
-    overflow: hidden;
-    transition: 0.4s ease;
+    padding: 20px;
+    transition: 0.3s ease;
 }
 
-.card-producto-elite:hover {
+.card-premium:hover {
     border-color: #ff0000;
     transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
 }
 
-.imagen-container { position: relative; width: 100%; height: 200px; }
-.imagen-container img { width: 100%; height: 100%; object-fit: cover; }
+.img-box img { width: 100%; border-radius: 10px; margin-bottom: 20px; }
+.info-box h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.precio-unitario { font-size: 1.6rem; font-weight: 900; color: #ff0000; margin-bottom: 20px; }
 
-.info-producto { padding: 25px; }
-.info-producto h3 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
-.desc-breve { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
-.precio-tag { font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 20px; }
-
-.acciones-dobles { display: flex; gap: 10px; }
-.btn-comprar {
+/* BOTONES DUO */
+.botones-duo { display: flex; gap: 10px; }
+.btn-rojo {
     flex: 1; background: #ff0000; color: white; border: none;
-    padding: 12px; border-radius: 6px; font-weight: 800; cursor: pointer;
+    padding: 12px; border-radius: 8px; font-weight: 800; cursor: pointer;
 }
-.btn-detalles {
-    flex: 1; background: #fff; color: #000; border: none;
-    padding: 12px; border-radius: 6px; font-weight: 800; cursor: pointer;
+.btn-blanco {
+    flex: 1; background: white; color: black; border: none;
+    padding: 12px; border-radius: 8px; font-weight: 800; cursor: pointer;
 }
